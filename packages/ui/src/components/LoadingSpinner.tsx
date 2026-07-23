@@ -1,0 +1,17 @@
+import { cn } from '@marvinho/utils';
+import { Loader2 } from 'lucide-react';
+
+interface LoadingSpinnerProps {
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+}
+
+const sizeStyles = {
+  sm: 'h-4 w-4',
+  md: 'h-6 w-6',
+  lg: 'h-8 w-8',
+};
+
+export function LoadingSpinner({ size = 'md', className }: LoadingSpinnerProps) {
+  return <Loader2 className={cn('animate-spin text-[#C9A84C]', sizeStyles[size], className)} />;
+}

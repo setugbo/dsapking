@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://marvinho.com/sitemap.xml

@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [{ "name": "next" }],
+    "paths": {
+      "@marvinho/ui": ["./packages/ui/src"],
+      "@marvinho/ui/*": ["./packages/ui/src/*"],
+      "@marvinho/branding": ["./packages/branding/src"],
+      "@marvinho/hooks": ["./packages/hooks/src"],
+      "@marvinho/types": ["./packages/types/src"],
+      "@marvinho/utils": ["./packages/utils/src"],
+      "@marvinho/config": ["./packages/config/src"],
+      "@marvinho/theme": ["./packages/theme/src"],
+      "@marvinho/icons": ["./packages/icons/src"],
+      "@marvinho/forms": ["./packages/forms/src"],
+      "@marvinho/shared": ["./packages/shared/src"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

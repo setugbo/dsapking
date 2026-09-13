@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@marvinho/utils';
-import { Menu, X, ChevronDown, GraduationCap } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Logo, Button, Container, StudentPortalButton } from '@marvinho/ui';
 import { navigation } from '@marvinho/config';
 
@@ -157,12 +157,6 @@ export function Navbar() {
               ))}
             </div>
             <div className="mt-4 grid gap-3 border-t border-[var(--border)] px-4 pt-4">
-              <Link href="/student-portal">
-                <Button variant="secondary" size="md" className="w-full">
-                  <GraduationCap className="h-4 w-4" />
-                  Student Portal
-                </Button>
-              </Link>
               <Link href="/contact">
                 <Button variant="gold" size="md" className="w-full">
                   Enquire Now

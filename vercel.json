@@ -1,6 +1,6 @@
 {
   "framework": "nextjs",
-  "buildCommand": "turbo build --filter=website",
   "installCommand": "npm install",
+  "buildCommand": "turbo build --filter=website && cp -r .next apps/website",
   "regions": ["iad1"]
 }

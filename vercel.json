@@ -1,6 +1,6 @@
 {
   "framework": "nextjs",
   "installCommand": "npm install",
-  "buildCommand": "turbo build --filter=website && cp -r .next apps/website",
+  "buildCommand": "cd apps/website 2>/dev/null || cd .; turbo build --filter=website && mkdir -p apps/website && cp -r .next apps/website/",
   "regions": ["iad1"]
 }

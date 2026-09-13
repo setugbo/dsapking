@@ -25,7 +25,9 @@ export function ContactInfo() {
     {
       icon: <MapPin className="h-5 w-5" />,
       label: 'Address',
-      value: `${siteConfig.address.street}, ${siteConfig.address.city}, ${siteConfig.address.country}`,
+      value: [siteConfig.address.street, siteConfig.address.city, siteConfig.address.country]
+        .filter(Boolean)
+        .join(', '),
       href: null,
     },
     {

@@ -22,13 +22,13 @@ export const siteConfig = {
   description:
     'D KING SAP ACADEMY LTD is an SAP training and consulting organization committed to developing skilled SAP professionals through practical education and supporting organizations with professional SAP services.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://dkingacademy.com',
-  email: '[COMPANY EMAIL]',
-  phone: '[COMPANY PHONE NUMBER]',
-  whatsapp: '+[WHATSAPP NUMBER]',
+  email: 'hello@dkingacademy.com',
+  phone: '+2348108792527',
+  whatsapp: '+2348108792527',
   address: {
-    street: '[OFFICE ADDRESS]',
-    city: '[CITY]',
-    state: '[STATE]',
+    street: '',
+    city: 'FCT Abuja',
+    state: 'Nigeria',
     country: 'Nigeria',
   },
   social: {

@@ -64,9 +64,9 @@ export function Footer() {
               <div className="flex items-start gap-3 text-sm text-gray-400">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0" />
                 <span>
-                  {siteConfig.address.street}
-                  <br />
-                  {siteConfig.address.city}, {siteConfig.address.country}
+                  {[siteConfig.address.street, siteConfig.address.city, siteConfig.address.country]
+                    .filter(Boolean)
+                    .join(', ')}
                 </span>
               </div>
             </div>

@@ -1,30 +1,46 @@
-import type { BusinessUnitInfo, NavigationItem, Statistic, Testimonial, FAQ, TeamMember, JobListing, TimelineEvent, CoreValue, BlogPost, Project } from '@marvinho/types';
+import type {
+  NavigationItem,
+  Pillar,
+  TrainingProgramme,
+  ConsultingService,
+  PracticalStep,
+  CareerService,
+  ValueCard,
+  WhyChooseItem,
+  ResourceItem,
+  FAQ,
+  TrustItem,
+  CorporateTrainingOption,
+  EnquiryType,
+} from '@marvinho/types';
 
 export const siteConfig = {
-  name: 'Marvinho Limited',
-  tagline: 'Premium Services. Trusted Excellence.',
+  name: 'D KING SAP ACADEMY LTD',
+  shortName: 'D KING',
+  tagline: 'Building SAP Experts. Transforming Businesses.',
+  positioning: 'Empowering Professionals. Transforming Businesses.',
   description:
-    'Marvinho Limited is Nigeria\'s premier multi-service corporation, delivering excellence across media production, facility management, domestic services, construction finishing, and general merchandise.',
-  url: 'https://marvinho.com',
-  email: 'hello@marvinho.com',
-  phone: '+234 XXX XXX XXXX',
-  whatsapp: '+234XXXXXXXXXX',
+    'D KING SAP ACADEMY LTD is an SAP training and consulting organization committed to developing skilled SAP professionals through practical education and supporting organizations with professional SAP services.',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://dkingacademy.com',
+  email: '[COMPANY EMAIL]',
+  phone: '[COMPANY PHONE NUMBER]',
+  whatsapp: '+[WHATSAPP NUMBER]',
   address: {
-    street: 'Lagos, Nigeria',
-    city: 'Lagos',
-    state: 'Lagos',
+    street: '[OFFICE ADDRESS]',
+    city: '[CITY]',
+    state: '[STATE]',
     country: 'Nigeria',
   },
   social: {
-    twitter: 'https://twitter.com/marvinho',
-    instagram: 'https://instagram.com/marvinho',
-    facebook: 'https://facebook.com/marvinho',
-    linkedin: 'https://linkedin.com/company/marvinho',
-    youtube: 'https://youtube.com/@marvinho',
+    linkedin: '[LINKEDIN URL]',
+    instagram: '[INSTAGRAM URL]',
+    facebook: '[FACEBOOK URL]',
+    twitter: '[TWITTER URL]',
+    youtube: '[YOUTUBE URL]',
   },
   businessHours: {
-    weekday: 'Monday - Friday: 8:00 AM - 6:00 PM',
-    saturday: 'Saturday: 9:00 AM - 4:00 PM',
+    weekday: 'Monday - Friday: 8:00 AM - 5:00 PM',
+    saturday: 'Saturday: 9:00 AM - 3:00 PM',
     sunday: 'Sunday: Closed',
   },
 };
@@ -33,539 +49,1137 @@ export const navigation: NavigationItem[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   {
-    label: 'Businesses',
-    href: '/businesses',
+    label: 'Training',
+    href: '/training',
     children: [
-      { label: 'Marvinho Studio', href: '/businesses/studio' },
-      { label: 'Marvinho Agency', href: '/businesses/agency' },
-      { label: "Nani's Services", href: '/businesses/nani' },
-      { label: 'Marvinho Tiling', href: '/businesses/tiling' },
-      { label: 'Frame Enlargement', href: '/businesses/frame' },
-      { label: 'General Merchandise', href: '/businesses/merchandise' },
+      { label: 'Training Overview', href: '/training' },
+      { label: 'SAP S/4HANA Finance (FICO)', href: '/training/fico' },
+      { label: 'SAP Materials Management (MM)', href: '/training/mm' },
+      { label: 'SAP Sales & Distribution (SD)', href: '/training/sd' },
+      { label: 'SAP Production Planning (PP)', href: '/training/pp' },
+      { label: 'SAP Plant Maintenance (PM)', href: '/training/pm' },
+      { label: 'SAP Human Capital Management (HCM)', href: '/training/hcm' },
+      { label: 'SAP Business Warehouse (BW)', href: '/training/business-warehouse' },
+      { label: 'SAP Basis Administration', href: '/training/basis' },
     ],
   },
-  { label: 'Projects', href: '/projects' },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Careers', href: '/careers' },
+  {
+    label: 'Consulting',
+    href: '/consulting',
+    children: [
+      { label: 'Consulting Overview', href: '/consulting' },
+      { label: 'SAP Implementation', href: '/consulting/implementation' },
+      { label: 'Configuration & Customization', href: '/consulting/configuration' },
+      { label: 'Business Process Analysis', href: '/consulting/business-process-analysis' },
+      { label: 'Data Migration', href: '/consulting/data-migration' },
+      { label: 'SAP Integration', href: '/consulting/integration' },
+      { label: 'System Testing', href: '/consulting/system-testing' },
+      { label: 'Go-Live Support', href: '/consulting/go-live-support' },
+      { label: 'Post-Implementation Support', href: '/consulting/post-implementation-support' },
+    ],
+  },
+  { label: 'Practical Experience', href: '/practical-experience' },
+  { label: 'Career Development', href: '/career-development' },
+  { label: 'Corporate Training', href: '/corporate-training' },
+  { label: 'Resources', href: '/resources' },
   { label: 'Contact', href: '/contact' },
 ];
 
-export const businessUnits: BusinessUnitInfo[] = [
+export const heroTrustItems: TrustItem[] = [
+  { label: 'SAP Training', description: 'Professional SAP programmes', icon: 'GraduationCap' },
+  { label: 'Hands-On Practice', description: 'Practice on live SAP systems', icon: 'MonitorCog' },
+  { label: 'Professional Development', description: 'Career-focused support', icon: 'TrendingUp' },
+  { label: 'SAP Consulting', description: 'Enterprise SAP services', icon: 'Briefcase' },
+  { label: 'Corporate Training', description: 'Organization-wide capability', icon: 'Building2' },
+];
+
+export const pillars: Pillar[] = [
   {
-    id: 'studio',
-    name: 'Marvinho Studio',
-    slug: 'studio',
-    tagline: 'Capturing Moments. Creating Legacy.',
+    id: 'pillar-training',
+    number: '01',
+    title: 'SAP Training',
     description:
-      'From breathtaking wedding cinematography to corporate brand campaigns, Marvinho Studio delivers world-class visual storytelling that elevates your brand and preserves your most important moments.',
-    color: '#C9A84C',
-    services: [
-      { id: 'photography', name: 'Photography', slug: 'photography', description: 'Professional photography services for all occasions.', benefits: ['High-resolution deliverables', 'Professional editing', 'Multiple format outputs'] },
-      { id: 'videography', name: 'Videography', slug: 'videography', description: 'Cinematic video production that tells your story.', benefits: ['4K production', 'Drone footage included', 'Professional color grading'] },
-      { id: 'wedding-coverage', name: 'Wedding Coverage', slug: 'wedding-coverage', description: 'Complete wedding documentation from preparation to reception.', benefits: ['Full-day coverage', 'Highlight reel', 'Online gallery'] },
-      { id: 'corporate-photography', name: 'Corporate Photography', slug: 'corporate-photography', description: 'Professional corporate imagery for brands and businesses.', benefits: ['Headshots and team photos', 'Event documentation', 'Brand consistency'] },
-      { id: 'product-photography', name: 'Product Photography', slug: 'product-photography', description: 'E-commerce and catalog product photography.', benefits: ['White background shots', 'Lifestyle images', 'Social media ready'] },
-      { id: 'drone-coverage', name: 'Drone Coverage', slug: 'drone-coverage', description: 'Aerial photography and videography with professional drones.', benefits: ['4K aerial video', 'Safe operations', 'Unique perspectives'] },
-      { id: 'content-creation', name: 'Content Creation', slug: 'content-creation', description: 'Social media and marketing content production.', benefits: ['Platform-optimized', 'Brand-aligned', 'Consistent scheduling'] },
-      { id: 'livestream-production', name: 'Livestream Production', slug: 'livestream-production', description: 'Professional live event streaming and production.', benefits: ['Multi-camera setup', 'Real-time editing', 'Multi-platform streaming'] },
+      'Professional training across key SAP functional and technical areas, built to develop practical enterprise skills.',
+    icon: 'GraduationCap',
+    href: '/training',
+  },
+  {
+    id: 'pillar-practical',
+    number: '02',
+    title: 'Practical Experience',
+    description:
+      'Hands-on learning through SAP systems, guided exercises and realistic business scenarios that bridge theory and practice.',
+    icon: 'MonitorCog',
+    href: '/practical-experience',
+  },
+  {
+    id: 'pillar-consulting',
+    number: '03',
+    title: 'SAP Consulting',
+    description:
+      'Professional SAP services supporting organizations through implementation, configuration and business transformation.',
+    icon: 'Briefcase',
+    href: '/consulting',
+  },
+];
+
+export const trainingProgrammes: TrainingProgramme[] = [
+  {
+    id: 'fico',
+    title: 'SAP S/4HANA Finance (FICO)',
+    shortName: 'FICO',
+    slug: 'fico',
+    category: 'functional',
+    shortDescription:
+      'Financial accounting and controlling — from general ledger and asset accounting to cost management and profitability reporting in SAP S/4HANA.',
+    overview:
+      'The SAP S/4HANA Finance (FICO) programme equips participants with practical skills in Financial Accounting (FI) and Controlling (CO). Participants work through company code setup, document posting, accounts payable and receivable, asset accounting and management accounting processes within SAP S/4HANA.',
+    whatYouWillLearn: [
+      'SAP S/4HANA navigation and Fiori fundamentals',
+      'Company code and chart of accounts configuration',
+      'General ledger accounting and document posting',
+      'Accounts payable and accounts receivable processes',
+      'Asset accounting fundamentals',
+      'Cost center, internal order and profit center accounting',
+      'SAP S/4HANA Universal Journal and Finance simplifications',
+      'Integration of finance processes with MM and SD',
+    ],
+    practicalExperience: [
+      'Set up a company code and chart of accounts on the practice server',
+      'Post and reverse financial documents across business scenarios',
+      'Execute the procure-to-pay and order-to-cash finance cycle',
+      'Perform period-end closing and cost allocation exercises',
+      'Generate and analyse standard financial reports',
+    ],
+    audience: [
+      'Finance and accounting professionals',
+      'Aspiring SAP FICO consultants',
+      'University graduates seeking enterprise finance skills',
+      'Business analysts working with finance processes',
+    ],
+    learningOutcomes: [
+      'Configure core FI and CO organisational structures',
+      'Execute and manage end-to-end financial processes',
+      'Perform period-end closing activities',
+      'Analyse management accounting information for business decisions',
+      'Navigate SAP S/4HANA confidently',
+    ],
+    careerRelevance:
+      'SAP FICO skills are in demand across finance, manufacturing, services and public sector organizations. Participants build a foundation for roles such as SAP FICO consultant, finance process owner and SAP-enabled financial analyst.',
+    featured: true,
+  },
+  {
+    id: 'mm',
+    title: 'SAP Materials Management (MM)',
+    shortName: 'MM',
+    slug: 'mm',
+    category: 'functional',
+    shortDescription:
+      'Procurement-to-payment, inventory management and materials master data — the engine of supply chain operations in SAP.',
+    overview:
+      'The SAP Materials Management (MM) programme covers the complete procurement and inventory cycle in SAP S/4HANA. Participants learn to manage materials and vendor master data, process purchase requisitions and purchase orders, perform goods movements and complete invoice verification.',
+    whatYouWillLearn: [
+      'SAP S/4HANA navigation for logistics users',
+      'Organizational structures: plant, storage location, purchasing organization',
+      'Material master and vendor master data management',
+      'Purchase requisitions, purchase orders and source determination',
+      'Goods receipt, goods issue and stock transfer processes',
+      'Inventory management and physical inventory',
+      'Invoice verification and the procurement-to-payment cycle',
+      'Integration of MM with Finance and Sales',
+    ],
+    practicalExperience: [
+      'Create and maintain material and vendor master data',
+      'Execute a complete procurement-to-payment scenario',
+      'Perform goods receipts, goods issues and stock transfers',
+      'Complete physical inventory and stock count exercises',
+      'Process invoices and analyse purchase documents',
+    ],
+    audience: [
+      'Supply chain and procurement professionals',
+      'Warehouse and inventory staff',
+      'Aspiring SAP MM consultants',
+      'Graduates pursuing operations careers',
+    ],
+    learningOutcomes: [
+      'Set up and maintain MM master and organizational data',
+      'Execute the full procurement-to-payment process',
+      'Manage inventory movements and stock valuation',
+      'Process invoice verification accurately',
+      'Troubleshoot routine MM process issues',
+    ],
+    careerRelevance:
+      'MM skills support roles in procurement, supply chain management and SAP MM consulting across trading, manufacturing and services industries.',
+    featured: true,
+  },
+  {
+    id: 'sd',
+    title: 'SAP Sales & Distribution (SD)',
+    shortName: 'SD',
+    slug: 'sd',
+    category: 'functional',
+    shortDescription:
+      'The order-to-cash journey — sales order processing, pricing, availability, delivery and billing in SAP.',
+    overview:
+      'The SAP Sales & Distribution (SD) programme focuses on the customer-facing side of the business. Participants develop skills in sales master data, inquiry and quotation processes, sales order handling, pricing, delivery and billing — completing the order-to-cash cycle in SAP S/4HANA.',
+    whatYouWillLearn: [
+      'Sales organizational structures and distribution channels',
+      'Customer master and customer-material info records',
+      'Inquiries, quotations and sales order processing',
+      'Availability checks and delivery scheduling',
+      'Pricing procedures and condition techniques',
+      'Outbound delivery, picking and goods issue',
+      'Billing documents and basic billing scenarios',
+      'Integration of SD with MM and Finance',
+    ],
+    practicalExperience: [
+      'Create and maintain customer master data',
+      'Process an end-to-end order-to-cash scenario',
+      'Apply condition-based pricing to sales documents',
+      'Execute delivery and goods issue processes',
+      'Generate billing documents and review partner outputs',
+    ],
+    audience: [
+      'Sales, distribution and customer service professionals',
+      'Order management teams',
+      'Aspiring SAP SD consultants',
+      'Graduates pursuing commercial careers',
+    ],
+    learningOutcomes: [
+      'Configure typical SD sales processes',
+      'Process the complete order-to-cash cycle',
+      'Design and apply pricing conditions',
+      'Manage delivery and billing activities',
+      'Recognise the touchpoints between SD and other modules',
+    ],
+    careerRelevance:
+      'SD competence opens paths in SAP SD consulting, sales operations and order management in organizations of all sizes.',
+    featured: true,
+  },
+  {
+    id: 'pp',
+    title: 'SAP Production Planning (PP)',
+    shortName: 'PP',
+    slug: 'pp',
+    category: 'functional',
+    shortDescription:
+      'From production master data and MRP to production orders — the planning and execution backbone of manufacturing.',
+    overview:
+      'The SAP Production Planning (PP) programme covers production master data, material requirements planning and production execution in SAP S/4HANA. Participants learn to work with bills of material, routings and work centers and to execute the production order lifecycle.',
+    whatYouWillLearn: [
+      'Production planning master data: materials, BOM, routing, work center',
+      'Material requirements planning (MRP) fundamentals',
+      'Production order creation, release and costing',
+      'Goods issue, confirmations and goods receipt for production',
+      'Capacity planning and scheduling basics',
+      'Integration of PP with MM, SD and Finance',
+      'S/4HANA manufacturing and planning fundamentals',
+    ],
+    practicalExperience: [
+      'Create bills of material, routings and work centers',
+      'Run MRP and analyse planning results',
+      'Execute a complete production order lifecycle',
+      'Perform backflushing and production confirmations',
+      'Troubleshoot standard planning situations',
+    ],
+    audience: [
+      'Production planners and manufacturing professionals',
+      'Industrial engineers',
+      'Aspiring SAP PP consultants',
+      'Graduates pursuing operations careers',
+    ],
+    learningOutcomes: [
+      'Create and maintain PP master data',
+      'Run and interpret material requirements planning',
+      'Execute and monitor production orders',
+      'Understand capacity and scheduling fundamentals',
+      'Integrate PP processes with adjacent modules',
+    ],
+    careerRelevance:
+      'PP expertise supports careers in production planning, manufacturing operations and SAP PP consulting across discrete and process industries.',
+    featured: false,
+  },
+  {
+    id: 'pm',
+    title: 'SAP Plant Maintenance (PM)',
+    shortName: 'PM',
+    slug: 'pm',
+    category: 'functional',
+    shortDescription:
+      'Maintenance planning and execution — equipment, functional locations, notifications and work orders.',
+    overview:
+      'The SAP Plant Maintenance (PM) programme develops skills in technical asset management: functional locations, equipment master data, maintenance notifications and orders, and planned maintenance strategies within SAP.',
+    whatYouWillLearn: [
+      'Technical objects: functional locations and equipment',
+      'Maintenance planning structures and task lists',
+      'Maintenance notifications and maintenance orders',
+      'Corrective, preventive and breakdown maintenance processes',
+      'Maintenance plans and scheduling strategies',
+      'Integration of PM with PP, MM and Finance',
+    ],
+    practicalExperience: [
+      'Create functional locations and equipment records',
+      'Process maintenance notifications and orders end-to-end',
+      'Execute preventive maintenance using maintenance plans',
+      'Raise material requirements from maintenance tasks',
+      'Review cost and history information for equipment',
+    ],
+    audience: [
+      'Maintenance engineers and technicians',
+      'Facility and asset managers',
+      'Aspiring SAP PM consultants',
+      'Professionals in utilities, oil & gas and manufacturing',
+    ],
+    learningOutcomes: [
+      'Set up technical object master data',
+      'Plan and execute maintenance activities',
+      'Manage maintenance notifications and orders',
+      'Design preventive maintenance strategies',
+      'Track maintenance costs and asset history',
+    ],
+    careerRelevance:
+      'PM skills are valuable in asset-intensive industries and open roles in SAP PM consulting and maintenance management.',
+    featured: false,
+  },
+  {
+    id: 'hcm',
+    title: 'SAP Human Capital Management (HCM)',
+    shortName: 'HCM',
+    slug: 'hcm',
+    category: 'functional',
+    shortDescription:
+      'Core HR, organizational management and the hire-to-retire employee journey in SAP HCM.',
+    overview:
+      'The SAP Human Capital Management (HCM) programme introduces HR professionals to core personnel administration and organizational management in SAP. Participants learn employee master data management, personnel actions, organizational structures and related HR processes.',
+    whatYouWillLearn: [
+      'Personnel administration and employee master data',
+      'Organizational management and org unit structures',
+      'Personnel actions: hire, transfer, leave, termination',
+      'Time management and attendance basics',
+      'Payroll-relevant data and HR reporting',
+      'Employee and manager self-service concepts',
+      'Integration of HCM with organizational processes',
+    ],
+    practicalExperience: [
+      'Create and maintain employee master records',
+      'Execute personnel actions across the employee lifecycle',
+      'Build and assign organizational units',
+      'Maintain time and attendance data',
+      'Generate standard HR reports and queries',
+    ],
+    audience: [
+      'Human resources professionals',
+      'HRIS and HR operations staff',
+      'Aspiring SAP HCM consultants',
+      'Graduates pursuing HR technology careers',
+    ],
+    learningOutcomes: [
+      'Manage employee master data accurately',
+      'Execute core personnel actions',
+      'Design and maintain organizational structures',
+      'Process time management information',
+      'Support day-to-day HR operations in SAP',
+    ],
+    careerRelevance:
+      'HCM skills support careers in HR operations, HRIS administration and SAP HCM/SuccessFactors consulting.',
+    featured: false,
+  },
+  {
+    id: 'business-warehouse',
+    title: 'SAP Business Warehouse (BW)',
+    shortName: 'BW',
+    slug: 'business-warehouse',
+    category: 'technical',
+    shortDescription:
+      'Data warehousing and reporting — modelling enterprise data from extraction to analysis with SAP BW.',
+    overview:
+      'The SAP Business Warehouse (BW) programme introduces enterprise data warehousing and analytical reporting. Participants learn to model data, extract and load information from SAP systems, and build reports that support business analysis.',
+    whatYouWillLearn: [
+      'SAP BW architecture and data warehousing concepts',
+      'InfoAreas, InfoObjects, DataStore objects and InfoCubes',
+      'Extraction, transformation and loading (ETL) processes',
+      'Transformations, data transfer processes and data flows',
+      'Reporting and analysis with BW queries and analytic views',
+      'SAP BW on HANA fundamentals and modern analytics',
+    ],
+    practicalExperience: [
+      'Design an InfoArea with core InfoObjects',
+      'Model DataStore objects and InfoCubes',
+      'Load data from source systems using standard extractors',
+      'Create and analyse BW queries and reports',
+      'Troubleshoot common data load situations',
+    ],
+    audience: [
+      'Business intelligence and analytics professionals',
+      'Data analysts and reporting specialists',
+      'Aspiring SAP BW consultants',
+      'IT professionals moving into data warehousing',
+    ],
+    learningOutcomes: [
+      'Design core BW data models',
+      'Execute extraction and data loading processes',
+      'Build reporting queries for business analysis',
+      'Maintain and monitor data flows',
+      'Understand the role of BW in enterprise analytics',
+    ],
+    careerRelevance:
+      'BW and analytics skills support careers in business intelligence, data warehousing and SAP analytics consulting.',
+    featured: false,
+  },
+  {
+    id: 'basis',
+    title: 'SAP Basis Administration',
+    shortName: 'Basis',
+    slug: 'basis',
+    category: 'technical',
+    shortDescription:
+      'SAP system administration — architecture, users and roles, transports, monitoring and security.',
+    overview:
+      'The SAP Basis Administration programme prepares IT professionals to manage SAP system landscapes. Participants cover system architecture, client administration, user and role administration, transport management, system monitoring and foundational security administration.',
+    whatYouWillLearn: [
+      'SAP system architecture and landscape design',
+      'Client administration and system copy concepts',
+      'User and role administration (SU01 and PFCG)',
+      'Transport management and change deployment',
+      'System monitoring, logs and performance basics',
+      'Spool administration and background job management',
+      'SAP S/4HANA and HANA database fundamentals',
+      'Authorization and security administration basics',
+    ],
+    practicalExperience: [
+      'Create and manage users and authorization roles',
+      'Execute transport requests across a practice landscape',
+      'Monitor systems and analyse application logs',
+      'Schedule and manage background jobs',
+      'Apply foundational security and housekeeping tasks',
+    ],
+    audience: [
+      'IT system administrators',
+      'Infrastructure and operations professionals',
+      'Aspiring SAP Basis consultants',
+      'Professionals transitioning into SAP technical roles',
+    ],
+    learningOutcomes: [
+      'Manage users, roles and authorizations',
+      'Administer transport and change processes',
+      'Monitor SAP systems and resolve common issues',
+      'Manage background jobs and print infrastructure',
+      'Understand S/4HANA administration fundamentals',
+    ],
+    careerRelevance:
+      'Basis skills underpin every SAP deployment and lead to careers in SAP infrastructure administration and technical consulting.',
+    featured: false,
+  },
+];
+
+export const consultingServices: ConsultingService[] = [
+  {
+    id: 'implementation',
+    title: 'SAP Implementation',
+    slug: 'implementation',
+    shortDescription:
+      'Structured SAP project delivery from assessment and blueprint to configuration, testing and go-live.',
+    overview:
+      'D KING supports organizations through the full SAP implementation journey. We combine structured project discipline with practical configuration knowledge to help organizations adopt SAP solutions that fit their business processes.',
+    businessChallenge:
+      'SAP projects are complex. Poor scoping, unclear processes and weak project governance are common reasons transformations struggle to deliver value on time and on budget.',
+    approach: [
+      'Kick off with a structured assessment of business requirements and process readiness',
+      'Run blueprint workshops that map business processes to SAP capabilities',
+      'Configure the system following fit-to-standard best practice',
+      'Execute disciplined testing and user readiness activities',
+      'Deliver a controlled go-live with structured support',
+    ],
+    typicalActivities: [
+      'Project scoping and planning',
+      'Business blueprint workshops',
+      'System setup and configuration',
+      'Integration and user acceptance testing',
+      'Go-live preparation and execution support',
+    ],
+    businessValue: [
+      'A structured, predictable project approach',
+      'Process alignment with standard SAP best practice',
+      'Reduced implementation risk',
+      'A system your organization can operate and evolve',
     ],
   },
   {
-    id: 'agency',
-    name: 'Marvinho Agency',
-    slug: 'agency',
-    tagline: 'Spotless Spaces. Trusted People.',
-    description:
-      'Marvinho Agency provides premium cleaning, facility management, and staffing solutions that keep your spaces immaculate and your operations running smoothly.',
-    color: '#2D2D2D',
-    services: [
-      { id: 'commercial-cleaning', name: 'Commercial Cleaning', slug: 'commercial-cleaning', description: 'Professional cleaning for offices, retail, and commercial spaces.', benefits: ['Custom schedules', 'Eco-friendly products', 'Insured teams'] },
-      { id: 'residential-cleaning', name: 'Residential Cleaning', slug: 'residential-cleaning', description: 'Thorough home cleaning services tailored to your needs.', benefits: ['Flexible scheduling', 'Trained staff', 'Satisfaction guaranteed'] },
-      { id: 'facility-management', name: 'Facility Management', slug: 'facility-management', description: 'Complete facility maintenance and management solutions.', benefits: ['24/7 support', 'Preventive maintenance', 'Cost efficiency'] },
-      { id: 'deep-cleaning', name: 'Deep Cleaning', slug: 'deep-cleaning', description: 'Intensive cleaning for thorough sanitation and hygiene.', benefits: ['Hospital-grade products', 'Detailed checklist', 'Certified team'] },
-      { id: 'post-construction', name: 'Post Construction Cleaning', slug: 'post-construction-cleaning', description: 'Specialized cleaning after construction and renovation projects.', benefits: ['Debris removal', 'Surface restoration', 'Move-in ready'] },
-      { id: 'staff-recruitment', name: 'Cleaning Staff Recruitment', slug: 'cleaning-staff-recruitment', description: 'Vetted and trained cleaning professionals for your organization.', benefits: ['Background checked', 'Trained professionals', 'Replacement guarantee'] },
-      { id: 'domestic-staff-recruitment', name: 'Domestic Staff Recruitment', slug: 'domestic-staff-recruitment', description: 'Reliable domestic staff for homes and households.', benefits: ['Verified references', 'Skills tested', 'Trial period'] },
-      { id: 'property-maintenance', name: 'Property Maintenance', slug: 'property-maintenance', description: 'Comprehensive property upkeep and repair services.', benefits: ['Scheduled maintenance', 'Emergency repairs', 'Quality workmanship'] },
+    id: 'configuration',
+    title: 'Configuration & Customization',
+    slug: 'configuration',
+    shortDescription:
+      'SAP configuration that makes the system fit your business processes — without unnecessary development.',
+    overview:
+      'We configure SAP systems to reflect your operational realities, prioritizing standard configuration over unnecessary customization so the system remains stable, upgradable and maintainable.',
+    businessChallenge:
+      'Organizations often over-customize SAP, creating complex systems that are expensive to maintain and difficult to upgrade.',
+    approach: [
+      'Document and challenge current process requirements against SAP best practice',
+      'Configure organizational structures and business rules in the implementation guide (IMG)',
+      'Use standard functionality wherever it meets business needs',
+      'Ensure every configuration decision is documented and testable',
+    ],
+    typicalActivities: [
+      'IMG-based configuration across finance, logistics and administration',
+      'Process-specific system settings and validation rules',
+      'Configuration documentation and handover',
+      'Support during integration and user testing',
+    ],
+    businessValue: [
+      'A cleaner, more maintainable configuration',
+      'Lower total cost of ownership',
+      'Higher system stability and upgradeability',
+      'Clear documentation for your team',
     ],
   },
   {
-    id: 'nani',
-    name: "Nani's Services",
-    slug: 'nani',
-    tagline: 'Caring for Your Family. Like Our Own.',
-    description:
-      "Nani's Services specializes in professional nanny recruitment, childcare, and domestic staffing, providing families with reliable, compassionate, and trained caregivers.",
-    color: '#8B6F47',
-    services: [
-      { id: 'nanny-recruitment', name: 'Professional Nanny Recruitment', slug: 'nanny-recruitment', description: 'Thoroughly vetted nannies for your family.', benefits: ['Background checked', 'First aid trained', 'Child development knowledge'] },
-      { id: 'child-care', name: 'Child Care', slug: 'child-care', description: 'Professional childcare services and support.', benefits: ['Age-appropriate activities', 'Safe environment', 'Daily reports'] },
-      { id: 'caregiver-recruitment', name: 'Caregiver Recruitment', slug: 'caregiver-recruitment', description: 'Compassionate caregivers for elderly and special needs.', benefits: ['Medical training', 'Compassionate approach', 'Experience verified'] },
-      { id: 'domestic-staffing', name: 'Domestic Staffing', slug: 'domestic-staffing', description: 'Complete household staffing solutions.', benefits: ['Skilled professionals', 'Flexible arrangements', 'Ongoing support'] },
-      { id: 'housekeepers', name: 'Housekeepers', slug: 'housekeepers', description: 'Professional housekeeping services for homes.', benefits: ['Detail-oriented', 'Trustworthy', 'Consistent quality'] },
-      { id: 'family-support', name: 'Family Support Services', slug: 'family-support', description: 'Comprehensive family support and household management.', benefits: ['Personalized service', 'Experienced staff', 'Family-focused'] },
+    id: 'business-process-analysis',
+    title: 'Business Process Analysis',
+    slug: 'business-process-analysis',
+    shortDescription:
+      'Document, analyse and improve the business processes that will run on SAP.',
+    overview:
+      'We help organizations understand their current processes, identify improvement opportunities and prepare clean, well-defined process maps that support SAP adoption and process optimization.',
+    businessChallenge:
+      'Complex or undocumented processes make SAP configuration and automation difficult, and often lead to rework and delay.',
+    approach: [
+      'Conduct structured interviews and workshops with process owners',
+      'Document current-state processes clearly and objectively',
+      'Identify gaps, redundancies and improvement opportunities',
+      'Recommend a future-state process design aligned to SAP',
+    ],
+    typicalActivities: [
+      'Process mapping and documentation',
+      'Gap analysis and improvement recommendations',
+      'Process workshop facilitation',
+      'Future-state process design',
+    ],
+    businessValue: [
+      'Clarity on how your business really operates',
+      'Process improvements before and during SAP adoption',
+      'Clean inputs for configuration and user training',
+      'Alignment between business and IT teams',
     ],
   },
   {
-    id: 'tiling',
-    name: 'Marvinho Tiling',
-    slug: 'tiling',
-    tagline: 'Precision Finishing. Lasting Elegance.',
-    description:
-      'Marvinho Tiling delivers expert tile and marble installation, floor finishing, and interior renovation services that transform spaces with precision craftsmanship.',
-    color: '#5B7553',
-    services: [
-      { id: 'tile-installation', name: 'Tile Installation', slug: 'tile-installation', description: 'Expert floor and wall tile installation.', benefits: ['Precision work', 'Quality materials', 'Warranty included'] },
-      { id: 'marble-installation', name: 'Marble Installation', slug: 'marble-installation', description: 'Premium marble flooring and wall cladding.', benefits: ['Natural stone expertise', 'Flawless finish', 'Long-lasting results'] },
-      { id: 'floor-finishing', name: 'Floor Finishing', slug: 'floor-finishing', description: 'Professional floor restoration and finishing.', benefits: ['Polishing experts', 'Stain removal', 'Protective coating'] },
-      { id: 'interior-finishing', name: 'Interior Finishing', slug: 'interior-finishing', description: 'Complete interior finishing and decoration services.', benefits: ['Design consultation', 'Quality craftsmanship', 'Project management'] },
-      { id: 'renovation', name: 'Renovation', slug: 'renovation', description: 'Full-scale renovation and remodeling services.', benefits: ['Complete solutions', 'On-time delivery', 'Budget-friendly'] },
-      { id: 'building-finishing', name: 'Building Finishing', slug: 'building-finishing', description: 'Professional building finishing for residential and commercial projects.', benefits: ['End-to-end service', 'Quality assurance', 'Modern techniques'] },
+    id: 'data-migration',
+    title: 'Data Migration',
+    slug: 'data-migration',
+    shortDescription:
+      'Move your data into SAP with quality — from audit and cleansing to extraction and validation.',
+    overview:
+      'We support the structured migration of master and transaction data from legacy systems into SAP, with the discipline required to protect data quality before, during and after cutover.',
+    businessChallenge:
+      'Poor or inconsistent legacy data is one of the biggest causes of go-live problems and post-implementation frustration.',
+    approach: [
+      'Audit source data and agree target data standards',
+      'Design extraction and transformation rules',
+      'Cleanse and validate data before loading',
+      'Load in controlled phases with checkpoint reconciliations',
+    ],
+    typicalActivities: [
+      'Data audit and quality assessment',
+      'Extraction and transformation design',
+      'Data cleansing and reconciliation',
+      'Controlled uploads and cutover execution support',
+    ],
+    businessValue: [
+      'Higher data quality at go-live',
+      'Reduced rework and data-related support calls',
+      'Faster, more reliable cutover',
+      'A data foundation you can trust for reporting',
     ],
   },
   {
-    id: 'frame',
-    name: 'Frame Enlargement',
-    slug: 'frame',
-    tagline: 'Frame Your Moments. Enlarge Your Vision.',
-    description:
-      'Frame Enlargement offers premium canvas printing, picture framing, and corporate wall art solutions that bring your images to life with museum-quality presentation.',
-    color: '#7B6BA0',
-    services: [
-      { id: 'canvas-printing', name: 'Canvas Printing', slug: 'canvas-printing', description: 'High-quality canvas prints in custom sizes.', benefits: ['Gallery-grade quality', 'Custom sizing', 'Vibrant colors'] },
-      { id: 'picture-framing', name: 'Picture Framing', slug: 'picture-framing', description: 'Custom framing solutions for art and photographs.', benefits: ['Premium materials', 'Custom designs', 'Expert craftsmanship'] },
-      { id: 'photo-enlargement', name: 'Photo Enlargement', slug: 'photo-enlargement', description: 'Professional photo enlargement with crystal clarity.', benefits: ['High resolution', 'True-to-life colors', 'Various formats'] },
-      { id: 'corporate-wall-art', name: 'Corporate Wall Art', slug: 'corporate-wall-art', description: 'Branded wall art and office decoration solutions.', benefits: ['Brand-aligned designs', 'Bulk ordering', 'Installation service'] },
-      { id: 'gallery-prints', name: 'Gallery Prints', slug: 'gallery-prints', description: 'Museum-quality prints for exhibitions and collections.', benefits: ['Archival quality', 'Professional finishing', 'Expert advice'] },
+    id: 'integration',
+    title: 'SAP Integration',
+    slug: 'integration',
+    shortDescription:
+      'Connect SAP with your other systems to enable seamless end-to-end business flows.',
+    overview:
+      'We design and support integrations that connect SAP with surrounding applications — from enterprise systems to partner systems — so information flows reliably across your technology landscape.',
+    businessChallenge:
+      'Disconnected systems create manual work, data errors and delays across finance, logistics and operations.',
+    approach: [
+      'Map interfaces needed to support core business processes',
+      'Design integration patterns based on data volumes and latency needs',
+      'Implement reliable transport and error handling',
+      'Monitor interfaces in operation',
+    ],
+    typicalActivities: [
+      'Interface design and specification',
+      'Integration implementation and configuration',
+      'Interface testing and error handling',
+      'Integration monitoring and support',
+    ],
+    businessValue: [
+      'Seamless end-to-end business processes',
+      'Reduced manual data entry and errors',
+      'Better visibility across systems',
+      'A foundation for further digitalization',
     ],
   },
   {
-    id: 'merchandise',
-    name: 'General Merchandise',
-    slug: 'merchandise',
-    tagline: 'Quality Products. Global Reach.',
-    description:
-      'Marvinho General Merchandise handles corporate procurement, import/export, and general trading, delivering quality products and supplies to businesses across Nigeria.',
-    color: '#C47A2B',
-    services: [
-      { id: 'corporate-procurement', name: 'Corporate Procurement', slug: 'corporate-procurement', description: 'End-to-end corporate procurement solutions.', benefits: ['Bulk pricing', 'Verified suppliers', 'Timely delivery'] },
-      { id: 'office-supplies', name: 'Office Supplies', slug: 'office-supplies', description: 'Complete office supply solutions for businesses.', benefits: ['Wide range', 'Competitive pricing', 'Regular delivery'] },
-      { id: 'industrial-supplies', name: 'Industrial Supplies', slug: 'industrial-supplies', description: 'Industrial equipment and supply chain solutions.', benefits: ['Quality assurance', 'Bulk orders', 'Technical support'] },
-      { id: 'import-export', name: 'Import & Export', slug: 'import-export', description: 'Reliable import and export services for international trade.', benefits: ['Customs clearance', 'Logistics support', 'Global network'] },
-      { id: 'general-trading', name: 'General Trading', slug: 'general-trading', description: 'Diverse general merchandise trading services.', benefits: ['Competitive rates', 'Quality products', 'Fast delivery'] },
+    id: 'system-testing',
+    title: 'System Testing',
+    slug: 'system-testing',
+    shortDescription:
+      'Structured unit, integration and user acceptance testing that builds go-live confidence.',
+    overview:
+      'We support SAP testing programs that validate configured processes, integrations and user readiness before go-live — so defects are found while they are still inexpensive to fix.',
+    businessChallenge:
+      'When testing is unstructured, defects surface during go-live and in the first weeks of operation, when they are costliest.',
+    approach: [
+      'Design a testing strategy scaled to project risk',
+      'Prepare and review test scenarios and scripts',
+      'Facilitate functional, integration and user acceptance testing',
+      'Manage defect tracking and resolution sign-off',
+    ],
+    typicalActivities: [
+      'Test strategy and planning',
+      'Test script preparation and review',
+      'Test execution coordination and support',
+      'Defect management and sign-off reporting',
+    ],
+    businessValue: [
+      'Higher confidence in the configured solution',
+      'Fewer defects at go-live',
+      'Cleaner, documented acceptance criteria',
+      'A smoother transition to steady-state operations',
+    ],
+  },
+  {
+    id: 'end-user-training',
+    title: 'End-User Training',
+    slug: 'end-user-training',
+    shortDescription:
+      'Role-based SAP training that helps your people work confidently in the new system.',
+    overview:
+      'We deliver practical, role-based end-user training that equips teams with the SAP knowledge they need for their day-to-day responsibilities, aligned to your processes and training approach.',
+    businessChallenge:
+      'User adoption is the measure of SAP success. Training that is generic or rushed leaves teams frustrated and processes incomplete.',
+    approach: [
+      'Identify the roles and tasks that need training',
+      'Prepare role-based training materials and scenarios',
+      'Deliver train-the-trainer and direct user training',
+      'Provide supporting documentation and refresher content',
+    ],
+    typicalActivities: [
+      'Role-based training needs analysis',
+      'Training material preparation',
+      'Classroom and virtual training delivery',
+      'End-user documentation and support handover',
+    ],
+    businessValue: [
+      'Higher user adoption and confidence',
+      'Fewer process errors and helpdesk calls',
+      'Faster return to productivity after go-live',
+      'Capability that stays with your organization',
+    ],
+  },
+  {
+    id: 'go-live-support',
+    title: 'Go-Live Support',
+    slug: 'go-live-support',
+    shortDescription:
+      'Controlled go-live execution and hypercare support for the critical first days of operation.',
+    overview:
+      'We help plan and execute a controlled go-live — from cutover preparation to hypercare support — so your transition from old to new is structured, communicative and supported.',
+    businessChallenge:
+      'Go-live is the highest-risk moment in an SAP journey. Uncontrolled cutovers and weak support can damage confidence and disrupt business.',
+    approach: [
+      'Prepare a detailed cutover plan with clear owners and checkpoints',
+      'Run go-live rehearsals where practical',
+      'Provide on-site and remote hypercare support',
+      'Track and resolve issues with structured escalation',
+    ],
+    typicalActivities: [
+      'Cutover planning and coordination',
+      'Go-live run-book execution',
+      'Hypercare support and issue management',
+      'Post-go-live status reviews',
+    ],
+    businessValue: [
+      'A controlled, low-drama go-live',
+      'Rapid issue resolution in hypercare',
+      'Clear communication for business users',
+      'A solid foundation for post-go-live stabilization',
+    ],
+  },
+  {
+    id: 'post-implementation-support',
+    title: 'Post-Implementation Support',
+    slug: 'post-implementation-support',
+    shortDescription:
+      'Stabilization and optimization support that protects the value of your SAP investment.',
+    overview:
+      'After go-live, we support organizations through stabilization, fixing issues, optimizing processes and building the internal capability to operate SAP confidently into the future.',
+    businessChallenge:
+      'The months after go-live determine whether an SAP investment delivers long-term value. Unresolved issues and unoptimized processes erode benefits.',
+    approach: [
+      'Provide structured issue resolution and guidance',
+      'Identify and implement process improvements',
+      'Support knowledge transfer to internal teams',
+      'Conduct periodic health checks and optimization reviews',
+    ],
+    typicalActivities: [
+      'Post-go-live issue support',
+      'Process and configuration optimization',
+      'Documentation and knowledge transfer',
+      'Periodic system health reviews',
+    ],
+    businessValue: [
+      'Stable operations after go-live',
+      'Continuous improvement of processes',
+      'Growing internal SAP capability',
+      'Long-term protection of your investment',
+    ],
+  },
+  {
+    id: 'support-maintenance',
+    title: 'SAP Support & Maintenance',
+    slug: 'support-maintenance',
+    shortDescription:
+      'Ongoing SAP support that keeps your system healthy, users productive and processes running.',
+    overview:
+      'We provide ongoing SAP support and maintenance services that keep systems stable and users productive — covering incident resolution, housekeeping, monitoring and minor enhancements.',
+    businessChallenge:
+      'Once SAP is live, day-to-day issues still need careful attention. Without structured support, small problems become operational and financial costs.',
+    approach: [
+      'Establish clear support processes and response expectations',
+      'Resolve incidents and service requests methodically',
+      'Perform regular maintenance, monitoring and housekeeping',
+      'Support minor enhancements as your business evolves',
+    ],
+    typicalActivities: [
+      'Incident resolution and guidance',
+      'System monitoring and housekeeping',
+      'Minor enhancements and configuration changes',
+      'Periodic review and reporting',
+    ],
+    businessValue: [
+      'Reliable day-to-day operations',
+      'Fast, professional incident resolution',
+      'A healthy, well-maintained system',
+      'Flexible capacity as your needs change',
     ],
   },
 ];
 
-export const statistics: Statistic[] = [
-  { label: 'Projects Completed', value: 2500, suffix: '+' },
-  { label: 'Happy Clients', value: 1200, suffix: '+' },
-  { label: 'Team Members', value: 150, suffix: '+' },
-  { label: 'Years Experience', value: 10, suffix: '+' },
-];
-
-export const testimonials: Testimonial[] = [
+export const practicalSteps: PracticalStep[] = [
   {
-    id: '1',
-    name: 'Adaeze Okonkwo',
-    role: 'CEO',
-    company: 'Luxe Interiors Ltd',
-    content:
-      'Marvinho Studio transformed our brand imagery completely. Their corporate photography service is truly world-class. The attention to detail and creative vision exceeded our expectations.',
-    rating: 5,
-    avatar: '/avatars/testimonial-1.jpg',
+    number: '01',
+    title: 'Understand',
+    description:
+      'Learn the concepts. Every programme starts with clear explanations of SAP functionality, business processes and the role of each module.',
   },
   {
-    id: '2',
-    name: 'Chidi Nwosu',
-    role: 'Facility Manager',
-    company: 'Atlantic Business Complex',
-    content:
-      "We've been using Marvinho Agency for our facility management needs for over three years. Their consistency, professionalism, and quality of service is unmatched in the industry.",
-    rating: 5,
-    avatar: '/avatars/testimonial-2.jpg',
+    number: '02',
+    title: 'Configure',
+    description:
+      'Work with SAP configuration exercises. Apply what you have learned by setting up organisational structures and business rules in the system.',
   },
   {
-    id: '3',
-    name: 'Funke Adeyemi',
-    role: 'Director',
-    company: 'Bright Futures Academy',
-    content:
-      "Nani's Services found us the perfect nanny for our school's daycare program. Their vetting process is thorough and they truly understand what families need.",
-    rating: 5,
-    avatar: '/avatars/testimonial-3.jpg',
+    number: '03',
+    title: 'Execute',
+    description:
+      'Perform business processes. Complete real transactions from master data creation to document posting, just as SAP users do in the workplace.',
   },
   {
-    id: '4',
-    name: 'Emeka Obi',
-    role: 'Architect',
-    company: 'Obi & Partners',
-    content:
-      'Marvinho Tiling delivered exceptional quality on our latest residential project. Their marble installation work was flawless and completed ahead of schedule.',
-    rating: 5,
-    avatar: '/avatars/testimonial-4.jpg',
+    number: '04',
+    title: 'Simulate',
+    description:
+      'Work through realistic business scenarios. Bring processes together in exercises that reflect the way organizations run end to end.',
   },
   {
-    id: '5',
-    name: 'Amina Bello',
-    role: 'Gallery Owner',
-    company: 'The Art Hub Lagos',
-    content:
-      'The canvas printing and framing quality from Frame Enlargement is museum-grade. Every piece we receive is perfectly finished and our clients are always impressed.',
-    rating: 5,
-    avatar: '/avatars/testimonial-5.jpg',
-  },
-  {
-    id: '6',
-    name: 'Tunde Bakare',
-    role: 'Procurement Manager',
-    company: 'Greenfield Industries',
-    content:
-      'Marvinho General Merchandise has been our trusted procurement partner for two years. Their reliability and pricing make them our preferred supplier.',
-    rating: 5,
-    avatar: '/avatars/testimonial-6.jpg',
+    number: '05',
+    title: 'Apply',
+    description:
+      'Participate in implementation-oriented projects. Consolidate your skills through guided project work that mirrors real SAP implementation activity.',
   },
 ];
 
-export const companyFAQs: FAQ[] = [
+export const practiceEnvironment = [
+  'SAP S/4HANA Practice Server',
+  'SAP GUI Access',
+  'Dedicated User Credentials',
+  'Practice Client Environment',
+  'Configuration Exercises',
+  'Business Process Simulations',
+  'End-to-End Implementation Projects',
+];
+
+export const careerServices: CareerService[] = [
   {
-    id: 'faq-1',
-    question: 'What services does Marvinho Limited offer?',
-    answer:
-      'Marvinho Limited operates six business units: Marvinho Studio (photography and videography), Marvinho Agency (cleaning and facility management), Nani\'s Services (nanny and caregiver recruitment), Marvinho Tiling (tile and marble installation), Frame Enlargement (canvas printing and framing), and General Merchandise (procurement and trading). Each business unit provides specialized, premium services.',
+    id: 'cv',
+    title: 'CV and Resume Development',
+    description:
+      'Guidance to help you present your SAP knowledge and practical experience clearly to employers.',
+    icon: 'FileText',
   },
   {
-    id: 'faq-2',
-    question: 'How can I request a quote for services?',
-    answer:
-      'You can request a quote by visiting the Contact page, calling our office directly, sending us a WhatsApp message, or filling out the quote request form on any business unit page. Our team will respond within 24 hours with a detailed proposal.',
+    id: 'interview',
+    title: 'Interview Preparation',
+    description:
+      'Practice and coaching for SAP and enterprise-technology interviews, covering both technical and behavioural questions.',
+    icon: 'MessageSquare',
   },
   {
-    id: 'faq-3',
-    question: 'What areas do you serve in Nigeria?',
-    answer:
-      'We primarily serve the Lagos metropolitan area and surrounding states, but our services extend across Nigeria for large-scale projects. Contact us to discuss your specific location and requirements.',
+    id: 'coaching',
+    title: 'Career Coaching',
+    description:
+      'Conversations to help you define your SAP career direction, choose a module path and set realistic goals.',
+    icon: 'Compass',
   },
   {
-    id: 'faq-4',
-    question: 'Are your staff members vetted and insured?',
-    answer:
-      'Yes, all Marvinho staff undergo thorough background checks, reference verification, and skills assessments. We maintain comprehensive insurance coverage for all our operations and team members.',
+    id: 'internship',
+    title: 'Internship Opportunities',
+    description:
+      'Access to internship opportunities where available, giving you real exposure to SAP-enabled work environments.',
+    icon: 'Briefcase',
   },
   {
-    id: 'faq-5',
-    question: 'Do you offer corporate contracts?',
-    answer:
-      'Absolutely. We provide customized corporate contracts for businesses requiring ongoing services. Our corporate clients benefit from priority scheduling, dedicated account management, and preferential pricing.',
+    id: 'placement',
+    title: 'Job Placement Support',
+    description:
+      'Support with job applications, referrals and connecting you with organizations looking for SAP talent.',
+    icon: 'Users',
   },
   {
-    id: 'faq-6',
-    question: 'How do I book a studio session?',
-    answer:
-      'Studio sessions can be booked through our Contact page, by calling our studio directly, or via WhatsApp. We recommend booking at least one week in advance for peak periods. A deposit is required to secure your booking.',
-  },
-  {
-    id: 'faq-7',
-    question: 'What payment methods do you accept?',
-    answer:
-      'We accept bank transfers, POS payments, and cash. For corporate clients, we offer invoice-based payment terms. Online payment integration is coming soon for added convenience.',
-  },
-  {
-    id: 'faq-8',
-    question: 'Do you provide warranties on your work?',
-    answer:
-      'Yes, all our services come with quality guarantees. Marvinho Tiling offers a workmanship warranty, Marvinho Agency provides service satisfaction guarantees, and Marvinho Studio includes revision guarantees on all creative work.',
+    id: 'mentoring',
+    title: 'Professional Mentoring',
+    description:
+      'Guidance from professionals who understand the SAP landscape and what it takes to grow a career in it.',
+    icon: 'GraduationCap',
   },
 ];
 
-export const teamMembers: TeamMember[] = [
+export const whyChooseUs: WhyChooseItem[] = [
   {
-    id: 'team-1',
-    name: 'Marvin Chukwu',
-    role: 'Founder & CEO',
-    bio: 'Visionary leader with over a decade of experience in building premium service brands across Nigeria. Driven by a commitment to excellence and customer satisfaction.',
-    avatar: '/team/ceo.jpg',
-  },
-  {
-    id: 'team-2',
-    name: 'Chioma Eze',
-    role: 'Chief Operations Officer',
-    bio: 'Operations expert ensuring seamless delivery across all Marvinho business units. Passionate about process optimization and team development.',
-    avatar: '/team/coo.jpg',
-  },
-  {
-    id: 'team-3',
-    name: 'Adeola Martins',
-    role: 'Creative Director',
-    bio: 'Award-winning creative professional leading Marvinho Studio with innovative visual storytelling and brand development expertise.',
-    avatar: '/team/creative-director.jpg',
-  },
-  {
-    id: 'team-4',
-    name: 'Oluwaseun Adeyemi',
-    role: 'Head of Business Development',
-    bio: 'Strategic thinker driving growth and partnerships across all Marvinho business units. Expert in corporate relationship management.',
-    avatar: '/team/biz-dev.jpg',
-  },
-];
-
-export const coreValues: CoreValue[] = [
-  {
-    title: 'Excellence',
-    description: 'We pursue the highest standards in everything we do, refusing to compromise on quality.',
-    icon: 'Star',
-  },
-  {
-    title: 'Integrity',
-    description: 'We conduct business with honesty, transparency, and ethical responsibility.',
+    title: 'Experienced Professionals',
+    description:
+      'Training and consulting delivered by professionals who understand SAP systems and the business processes they support.',
     icon: 'Shield',
   },
   {
-    title: 'Innovation',
-    description: 'We embrace new ideas and technologies to deliver better solutions for our clients.',
-    icon: 'Lightbulb',
+    title: 'Industry-Relevant Curriculum',
+    description:
+      'Programme content aligned to the way organizations actually use SAP in the workplace.',
+    icon: 'BookOpen',
   },
   {
-    title: 'Reliability',
-    description: 'We deliver on our promises consistently, building trust through dependable service.',
-    icon: 'Clock',
+    title: 'Hands-On Training',
+    description:
+      'Learn by doing on practice SAP systems rather than by watching alone.',
+    icon: 'MonitorCog',
   },
   {
-    title: 'People First',
-    description: 'We value our team and clients, treating every interaction with respect and care.',
-    icon: 'Heart',
+    title: 'Real-Time Project Experience',
+    description:
+      'Practise realistic business scenarios and implementation-style exercises that prepare you for the workplace.',
+    icon: 'Projector',
   },
   {
-    title: 'Growth',
-    description: 'We continuously develop our capabilities to stay ahead in a changing world.',
+    title: 'Flexible Learning',
+    description:
+      'Training options designed to suit working professionals and full-time learners.',
+    icon: 'CalendarClock',
+  },
+  {
+    title: 'Career Support',
+    description:
+      'Ongoing guidance as you move from training into the SAP job market.',
     icon: 'TrendingUp',
   },
 ];
 
-export const timeline: TimelineEvent[] = [
+export const coreValues: ValueCard[] = [
   {
-    year: '2014',
-    title: 'Founded',
-    description: 'Marvinho Limited was established with a vision to deliver premium services across Nigeria.',
+    title: 'Excellence',
+    description: 'We pursue quality and continuous improvement in everything we teach and deliver.',
+    icon: 'Award',
   },
   {
-    year: '2016',
-    title: 'Studio Launch',
-    description: 'Marvinho Studio was launched, offering professional photography and videography services.',
+    title: 'Integrity',
+    description: 'We act honestly and transparently with learners, organizations and partners.',
+    icon: 'ShieldCheck',
   },
   {
-    year: '2018',
-    title: 'Agency Expansion',
-    description: 'Marvinho Agency was established, providing cleaning and facility management solutions.',
+    title: 'Professionalism',
+    description: 'We maintain high standards of conduct, delivery and communication.',
+    icon: 'Briefcase',
   },
   {
-    year: '2019',
-    title: "Nani's Services Launch",
-    description: "Nani's Services was introduced to provide professional nanny and caregiver recruitment.",
+    title: 'Innovation',
+    description: 'We embrace new tools, methods and ideas to keep our training and consulting relevant.',
+    icon: 'Lightbulb',
   },
   {
-    year: '2020',
-    title: 'Tiling Division',
-    description: 'Marvinho Tiling was launched to offer expert tile and marble installation services.',
+    title: 'Customer Satisfaction',
+    description: 'We are committed to the success and satisfaction of every learner and client.',
+    icon: 'HeartHandshake',
   },
   {
-    year: '2021',
-    title: 'Frame Enlargement',
-    description: 'Frame Enlargement was added, providing premium canvas printing and framing solutions.',
+    title: 'Continuous Learning',
+    description: 'We model the learning culture we teach — always growing, always improving.',
+    icon: 'BookOpen',
   },
   {
-    year: '2022',
-    title: 'Merchandise Division',
-    description: 'General Merchandise was established, expanding into corporate procurement and trading.',
+    title: 'Teamwork',
+    description: 'We collaborate across teams to deliver complete, dependable outcomes.',
+    icon: 'Users',
   },
   {
-    year: '2024',
-    title: 'Digital Platform',
-    description: 'Launch of the unified digital platform, connecting all business units under one roof.',
-  },
-];
-
-export const industries = [
-  'Real Estate',
-  'Hospitality',
-  'Healthcare',
-  'Education',
-  'Corporate',
-  'Retail',
-  'Manufacturing',
-  'Government',
-  'Events & Entertainment',
-  'Oil & Gas',
-];
-
-export const blogPosts: BlogPost[] = [
-  {
-    id: 'blog-1',
-    title: 'How Professional Photography Can Elevate Your Brand',
-    slug: 'professional-photography-brand-elevation',
-    excerpt: 'Discover how investing in professional photography can transform your brand image and drive customer engagement.',
-    content: 'Professional photography is no longer a luxury—it\'s a necessity for brands that want to stand out...',
-    author: { name: 'Adeola Martins', role: 'Creative Director', avatar: '/team/creative-director.jpg' },
-    category: 'Studio',
-    tags: ['photography', 'branding', 'marketing'],
-    publishedAt: '2024-12-15',
-    readTime: 5,
-    featured: true,
-    image: '/blog/photography-brand.jpg',
-  },
-  {
-    id: 'blog-2',
-    title: 'The Complete Guide to Facility Management for Nigerian Businesses',
-    slug: 'facility-management-guide-nigeria',
-    excerpt: 'Learn how effective facility management can reduce costs and improve workplace productivity.',
-    content: 'In today\'s competitive business environment, facility management plays a crucial role...',
-    author: { name: 'Chioma Eze', role: 'COO', avatar: '/team/coo.jpg' },
-    category: 'Agency',
-    tags: ['facility-management', 'cleaning', 'business'],
-    publishedAt: '2024-12-10',
-    readTime: 7,
-    featured: true,
-    image: '/blog/facility-management.jpg',
-  },
-  {
-    id: 'blog-3',
-    title: 'Why Hiring a Professional Nanny Matters for Your Family',
-    slug: 'professional-nanny-importance',
-    excerpt: 'Understanding the benefits of professional nanny services and how to choose the right caregiver.',
-    content: 'Finding the right nanny for your family is one of the most important decisions you can make...',
-    author: { name: 'Nani Team', role: 'Nani\'s Services', avatar: '/team/nani.jpg' },
-    category: 'Nani\'s Services',
-    tags: ['childcare', 'nanny', 'family'],
-    publishedAt: '2024-12-05',
-    readTime: 4,
-    featured: false,
-    image: '/blog/nanny-services.jpg',
-  },
-  {
-    id: 'blog-4',
-    title: 'Modern Tiling Trends for Nigerian Homes in 2025',
-    slug: 'modern-tiling-trends-2025',
-    excerpt: 'Explore the latest tiling trends that are transforming Nigerian homes and commercial spaces.',
-    content: 'The tiling industry continues to evolve with new materials, patterns, and techniques...',
-    author: { name: 'Marvinho Tiling', role: 'Tiling Division', avatar: '/team/tiling.jpg' },
-    category: 'Tiling',
-    tags: ['tiling', 'interior-design', 'renovation'],
-    publishedAt: '2024-11-28',
-    readTime: 6,
-    featured: false,
-    image: '/blog/tiling-trends.jpg',
+    title: 'Accountability',
+    description: 'We take ownership of our commitments and deliver on them.',
+    icon: 'ClipboardCheck',
   },
 ];
 
-export const featuredProjects: Project[] = [
+export const corporateTrainingAudiences = [
   {
-    id: 'project-1',
-    title: 'Lagos Business Summit 2024',
-    slug: 'lagos-business-summit-2024',
-    description: 'Complete event coverage including photography, videography, and livestream production for a 3-day business conference.',
-    category: 'studio',
-    images: ['/projects/summit-1.jpg', '/projects/summit-2.jpg'],
-    client: 'Lagos Chamber of Commerce',
-    date: '2024-11-20',
-    featured: true,
+    title: 'Organizations Adopting SAP',
+    description: 'Build foundational SAP capability ahead of an implementation.',
   },
   {
-    id: 'project-2',
-    title: 'Atlantic Tower Facility Management',
-    slug: 'atlantic-tower-facility-management',
-    description: 'Comprehensive facility management contract for a 20-story commercial building in Victoria Island.',
-    category: 'agency',
-    images: ['/projects/atlantic-1.jpg'],
-    client: 'Atlantic Properties',
-    date: '2024-10-15',
-    featured: true,
+    title: 'Existing SAP Users',
+    description: 'Deepen process knowledge and system confidence for current users.',
   },
   {
-    id: 'project-3',
-    title: 'Ikoyi Residence Tiling Project',
-    slug: 'ikoyi-residence-tiling',
-    description: 'Premium marble installation and floor finishing for a luxury residential property in Ikoyi.',
-    category: 'tiling',
-    images: ['/projects/ikoyi-1.jpg'],
-    client: 'Private Client',
-    date: '2024-09-20',
-    featured: true,
+    title: 'Functional Teams',
+    description: 'Module-specific training for finance, logistics, HR and technical teams.',
   },
   {
-    id: 'project-4',
-    title: 'Art Gallery Wall Installation',
-    slug: 'art-gallery-wall-installation',
-    description: 'Corporate wall art and canvas printing for a new contemporary art gallery in Lagos.',
-    category: 'frame',
-    images: ['/projects/gallery-1.jpg'],
-    client: 'The Art Hub',
-    date: '2024-08-10',
-    featured: true,
+    title: 'End Users',
+    description: 'Role-based training focused on the exact transactions teams perform daily.',
   },
   {
-    id: 'project-5',
-    title: 'Greenfield Industries Office Setup',
-    slug: 'greenfield-office-setup',
-    description: 'Complete office supply procurement and setup for a new industrial facility.',
-    category: 'merchandise',
-    images: ['/projects/greenfield-1.jpg'],
-    client: 'Greenfield Industries',
-    date: '2024-07-05',
-    featured: true,
+    title: 'Business Process Teams',
+    description: 'Training aligned to process ownership, improvement and documentation.',
   },
   {
-    id: 'project-6',
-    title: 'Eko Hotel Wedding Coverage',
-    slug: 'eko-hotel-wedding-coverage',
-    description: 'Full wedding documentation including drone coverage, photography, and highlight film.',
-    category: 'studio',
-    images: ['/projects/wedding-1.jpg'],
-    client: 'Private Client',
-    date: '2024-12-01',
-    featured: true,
+    title: 'IT Teams',
+    description: 'Technical enablement for administration, monitoring and support functions.',
   },
 ];
 
-export const jobListings: JobListing[] = [
+export const corporateTrainingOptions: CorporateTrainingOption[] = [
   {
-    id: 'job-1',
-    title: 'Senior Photographer',
-    department: 'Marvinho Studio',
-    type: 'full-time',
-    location: 'Lagos, Nigeria',
-    description: 'We are looking for an experienced photographer to join our creative team. The ideal candidate will have a strong portfolio and experience in corporate and commercial photography.',
-    requirements: ['5+ years of professional photography experience', 'Proficient in Adobe Lightroom and Photoshop', 'Own professional camera equipment', 'Strong portfolio demonstrating technical skill and creativity'],
-    slug: 'senior-photographer',
+    id: 'end-user-training',
+    title: 'End-User Training',
+    description: 'Practical, role-based training that builds daily operating confidence in SAP.',
+    audience: 'End users and functional teams',
   },
   {
-    id: 'job-2',
-    title: 'Facility Supervisor',
-    department: 'Marvinho Agency',
-    type: 'full-time',
-    location: 'Lagos, Nigeria',
-    description: 'Join our agency team as a Facility Supervisor overseeing cleaning operations for major commercial clients.',
-    requirements: ['3+ years in facility management', 'Strong leadership and communication skills', 'Knowledge of cleaning chemicals and equipment', 'Ability to work flexible hours'],
-    slug: 'facility-supervisor',
+    id: 'functional-training',
+    title: 'Functional Training',
+    description: 'In-depth module training for teams responsible for business processes and configuration.',
+    audience: 'Functional consultants and process owners',
   },
   {
-    id: 'job-3',
-    title: 'Nanny Recruiter',
-    department: "Nani's Services",
-    type: 'full-time',
-    location: 'Lagos, Nigeria',
-    description: 'Help us find and vet the best childcare professionals for our growing client base.',
-    requirements: ['Background in human resources or social work', 'Experience in child care assessment', 'Excellent interpersonal skills', 'Attention to detail in vetting processes'],
-    slug: 'nanny-recruiter',
+    id: 'process-training',
+    title: 'Process-Specific Training',
+    description: 'Training built around a specific business process such as procure-to-pay or order-to-cash.',
+    audience: 'Cross-functional process teams',
   },
   {
-    id: 'job-4',
-    title: 'Tiling Specialist',
-    department: 'Marvinho Tiling',
-    type: 'contract',
-    location: 'Lagos, Nigeria',
-    description: 'Skilled tiling professional needed for residential and commercial projects.',
-    requirements: ['3+ years of professional tiling experience', 'Expertise in marble and ceramic installation', 'Own basic tools', 'Valid identification'],
-    slug: 'tiling-specialist',
+    id: 'refresher-training',
+    title: 'Refresher Training',
+    description: 'Focused updates that keep existing SAP users sharp after changes or staff turnover.',
+    audience: 'Existing SAP users',
+  },
+  {
+    id: 'customized-workshops',
+    title: 'Customized Workshops',
+    description: 'Workshops designed around your organization\'s processes, data and objectives.',
+    audience: 'Departments and project teams',
+  },
+  {
+    id: 'post-implementation-training',
+    title: 'Post-Implementation Training',
+    description: 'Training delivered after go-live to stabilize adoption and close knowledge gaps.',
+    audience: 'All user groups post go-live',
   },
 ];
+
+export const resources: ResourceItem[] = [
+  {
+    id: 'training-manuals',
+    title: 'SAP Training Manuals',
+    description: 'Structured manuals that guide learners through SAP processes, transactions and exercises.',
+    category: 'Training',
+    type: 'Manual',
+    url: '',
+    downloadable: false,
+  },
+  {
+    id: 'configuration-guides',
+    title: 'Configuration Guides',
+    description: 'Step-by-step configuration references for common SAP settings and organisational structures.',
+    category: 'Configuration',
+    type: 'Guide',
+    url: '',
+    downloadable: false,
+  },
+  {
+    id: 'business-process-docs',
+    title: 'Business Process Documentation',
+    description: 'Clear documentation of common business processes supported by SAP.',
+    category: 'Process',
+    type: 'Document',
+    url: '',
+    downloadable: false,
+  },
+  {
+    id: 'project-blueprints',
+    title: 'Project Blueprints',
+    description: 'Blueprint-style documents that show how SAP projects are scoped and structured.',
+    category: 'Project',
+    type: 'Template',
+    url: '',
+    downloadable: false,
+  },
+  {
+    id: 'standard-operating-procedures',
+    title: 'Standard Operating Procedures',
+    description: 'Reference procedures for routine SAP operations and business process execution.',
+    category: 'Process',
+    type: 'Document',
+    url: '',
+    downloadable: false,
+  },
+  {
+    id: 'video-tutorials',
+    title: 'Video Tutorials',
+    description: 'Guided walkthroughs of key SAP concepts and day-to-day activities.',
+    category: 'Training',
+    type: 'Video',
+    url: '',
+    downloadable: false,
+  },
+  {
+    id: 'interview-questions',
+    title: 'Interview Questions and Answers',
+    description: 'Practice questions covering SAP concepts, business processes and career readiness.',
+    category: 'Career',
+    type: 'Document',
+    url: '',
+    downloadable: false,
+  },
+  {
+    id: 'sample-project-documents',
+    title: 'Sample Project Documents',
+    description: 'Examples of the documentation produced during SAP implementations.',
+    category: 'Project',
+    type: 'Sample',
+    url: '',
+    downloadable: false,
+  },
+  {
+    id: 'implementation-templates',
+    title: 'Implementation Templates',
+    description: 'Reusable templates for project planning, testing, cutover and support activities.',
+    category: 'Project',
+    type: 'Template',
+    url: '',
+    downloadable: false,
+  },
+  {
+    id: 'assessment-practice',
+    title: 'Assessment Practice Papers',
+    description: 'Practice assessments that help learners prepare for academy evaluations and mock examinations.',
+    category: 'Assessment',
+    type: 'Document',
+    url: '',
+    downloadable: false,
+  },
+];
+
+export const faqs: FAQ[] = [
+  {
+    id: 'faq-1',
+    question: 'What SAP courses does D KING offer?',
+    answer:
+      'D KING SAP ACADEMY LTD offers professional training across major SAP functional and technical areas, including SAP S/4HANA Finance (FICO), Materials Management (MM), Sales & Distribution (SD), Production Planning (PP), Plant Maintenance (PM), Human Capital Management (HCM), Business Warehouse (BW) and Basis Administration.',
+    category: 'training',
+  },
+  {
+    id: 'faq-2',
+    question: 'Are the programmes practical?',
+    answer:
+      'Yes. Training is designed to be highly practical. Participants apply concepts by carrying out SAP exercises — configuring settings, running transactions and working through realistic business scenarios — rather than only watching demonstrations.',
+    category: 'practical',
+  },
+  {
+    id: 'faq-3',
+    question: 'Do students get access to SAP systems?',
+    answer:
+      'Participants use the academy\'s practical learning environment, which includes an SAP S/4HANA practice server, SAP GUI access, dedicated user credentials and a practice client environment for guided exercises and projects.',
+    category: 'practical',
+  },
+  {
+    id: 'faq-4',
+    question: 'Is training available online?',
+    answer:
+      'Training is delivered in formats that suit different learners. Please contact the academy to confirm the current online and in-person delivery options for the programme you are interested in.',
+    category: 'delivery',
+  },
+  {
+    id: 'faq-5',
+    question: 'Is physical training available?',
+    answer:
+      'Physical training is available where classroom facilities are used. Contact the academy to confirm venue details and schedules for your preferred programme.',
+    category: 'delivery',
+  },
+  {
+    id: 'faq-6',
+    question: 'Do you provide corporate training?',
+    answer:
+      'Yes. D KING provides corporate training for organizations adopting SAP, existing SAP users, functional teams, end users, business process teams and IT teams — including customized workshops and post-implementation training.',
+    category: 'corporate',
+  },
+  {
+    id: 'faq-7',
+    question: 'Do you provide SAP consulting services?',
+    answer:
+      'Yes. D KING offers SAP consulting services including implementation, configuration and customization, business process analysis, data migration, SAP integration, system testing, end-user training, go-live support, post-implementation support and support and maintenance.',
+    category: 'consulting',
+  },
+  {
+    id: 'faq-8',
+    question: 'Do students receive certificates?',
+    answer:
+      'Successful participants receive a Certificate of Completion issued by D KING SAP ACADEMY LTD. This certificate confirms completion of the academy\'s programme and is separate from any external or vendor certifications.',
+    category: 'certification',
+  },
+  {
+    id: 'faq-9',
+    question: 'Do you provide career support?',
+    answer:
+      'Yes. The academy supports participants with CV and resume development, interview preparation, career coaching, internship opportunities where available, job placement support and professional mentoring.',
+    category: 'careers',
+  },
+  {
+    id: 'faq-10',
+    question: 'How can I register my interest?',
+    answer:
+      'You can register your interest by submitting an enquiry through the Contact page, selecting SAP Training as your enquiry type. The D KING team will follow up with programme details, schedules and next steps.',
+    category: 'registration',
+  },
+];
+
+export const enquiryTypes: EnquiryType[] = [
+  { value: 'training', label: 'SAP Training' },
+  { value: 'corporate-training', label: 'Corporate Training' },
+  { value: 'consulting', label: 'SAP Consulting' },
+  { value: 'career-development', label: 'Career Development' },
+  { value: 'student-support', label: 'Student Support' },
+  { value: 'general', label: 'General Enquiry' },
+];
+
+export const studentPortalMessage =
+  'The D KING Student Portal will provide registered learners with access to their courses, learning progress, assignments, assessments, certificates and other learning resources.';
+
+export const certificateStatement =
+  'Successful participants receive a Certificate of Completion issued by D KING SAP ACADEMY LTD. This certificate is not an SAP vendor certification. Students pursuing external SAP certification are responsible for meeting vendor requirements.';

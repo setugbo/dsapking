@@ -10,6 +10,7 @@ interface SectionHeaderProps {
   align?: 'left' | 'center' | 'right';
   className?: string;
   light?: boolean;
+  badgeVariant?: 'primary' | 'gold' | 'navy' | 'primary-light' | 'gold-light';
 }
 
 export function SectionHeader({
@@ -19,6 +20,7 @@ export function SectionHeader({
   align = 'center',
   className,
   light = false,
+  badgeVariant = 'primary',
 }: SectionHeaderProps) {
   return (
     <div
@@ -31,14 +33,14 @@ export function SectionHeader({
       )}
     >
       {badge && (
-        <div className="mb-4">
-          <Badge variant={light ? 'gold-light' : 'gold'}>{badge}</Badge>
+        <div className={cn('mb-4', align === 'center' && 'flex justify-center')}>
+          <Badge variant={light ? 'gold' : badgeVariant}>{badge}</Badge>
         </div>
       )}
       <h2
         className={cn(
           'text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl',
-          light ? 'text-white' : 'text-[#141414]'
+          light ? 'text-white' : 'text-[var(--text)]'
         )}
       >
         {title}
@@ -47,7 +49,7 @@ export function SectionHeader({
         <p
           className={cn(
             'mt-4 text-lg leading-relaxed sm:text-xl',
-            light ? 'text-gray-300' : 'text-gray-500'
+            light ? 'text-gray-300' : 'text-[var(--muted)]'
           )}
         >
           {description}

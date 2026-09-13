@@ -1,6 +1,6 @@
 import { cn } from '@marvinho/utils';
 
-type BadgeVariant = 'gold' | 'gold-light' | 'dark' | 'gray' | 'green';
+type BadgeVariant = 'gold' | 'gold-light' | 'primary' | 'primary-light' | 'gray' | 'green' | 'navy';
 
 interface BadgeProps {
   children: React.ReactNode;
@@ -9,14 +9,16 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  gold: 'bg-[#C9A84C]/10 text-[#C9A84C] border-[#C9A84C]/20',
-  'gold-light': 'bg-[#f9ecc0]/30 text-[#C9A84C] border-[#f9ecc0]/40',
-  dark: 'bg-[#141414]/10 text-[#141414] border-[#141414]/20',
+  gold: 'bg-[var(--gold)]/10 text-[var(--gold-700)] border-[var(--gold)]/20',
+  'gold-light': 'bg-[var(--gold-100)]/40 text-[var(--gold-700)] border-[var(--gold-100)]',
+  primary: 'bg-[var(--primary)]/10 text-[var(--primary)] border-[var(--primary)]/20',
+  'primary-light': 'bg-[var(--primary-50)] text-[var(--primary-700)] border-[var(--primary-200)]',
+  navy: 'bg-[var(--navy)]/10 text-[var(--navy)] border-[var(--navy)]/20',
   gray: 'bg-gray-100 text-gray-600 border-gray-200',
   green: 'bg-emerald-50 text-emerald-600 border-emerald-200',
 };
 
-export function Badge({ children, variant = 'gold', className }: BadgeProps) {
+export function Badge({ children, variant = 'primary', className }: BadgeProps) {
   return (
     <span
       className={cn(

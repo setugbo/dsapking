@@ -4,7 +4,7 @@ import { forwardRef, type ButtonHTMLAttributes } from 'react';
 import { cn } from '@marvinho/utils';
 import { Loader2 } from 'lucide-react';
 
-type ButtonVariant = 'primary' | 'secondary' | 'gold' | 'white' | 'ghost' | 'link';
+type ButtonVariant = 'primary' | 'secondary' | 'gold' | 'white' | 'ghost' | 'link' | 'navy';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -16,12 +16,13 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: 'bg-[#141414] text-white hover:bg-[#2D2D2D] hover:shadow-lg',
-  secondary: 'border-2 border-[#141414] bg-transparent text-[#141414] hover:bg-[#141414] hover:text-white',
-  gold: 'bg-[#C9A84C] text-white hover:bg-[#b8912a] hover:shadow-lg',
-  white: 'bg-white text-[#141414] hover:bg-gray-50 hover:shadow-lg',
-  ghost: 'bg-transparent text-[#141414] hover:bg-gray-100',
-  link: 'bg-transparent text-[#C9A84C] underline-offset-4 hover:underline p-0 h-auto',
+  primary: 'bg-[var(--primary)] text-white hover:bg-[var(--primary-600)] hover:shadow-lg',
+  secondary: 'border-2 border-[var(--primary)] bg-transparent text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white',
+  gold: 'bg-[var(--gold)] text-[var(--navy)] hover:bg-[var(--gold-600)] hover:shadow-lg',
+  white: 'bg-white text-[var(--text)] hover:bg-gray-50 hover:shadow-lg',
+  navy: 'bg-[var(--navy)] text-white hover:bg-[var(--navy-500)] hover:shadow-lg',
+  ghost: 'bg-transparent text-[var(--text)] hover:bg-gray-100',
+  link: 'bg-transparent text-[var(--primary)] underline-offset-4 hover:underline p-0 h-auto',
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

@@ -4,51 +4,53 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { WhatsAppButton } from '@marvinho/ui';
 import { ScrollToTop } from '@marvinho/ui';
+import { SITE_NAME, SITE_URL } from '@marvinho/shared';
+import { siteConfig } from '@marvinho/config';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Marvinho Limited | Premium Services. Trusted Excellence.',
-    template: '%s | Marvinho Limited',
+    default: `${SITE_NAME} | SAP Training & Consulting`,
+    template: `%s | ${SITE_NAME.split(' ')[0]} ${SITE_NAME.slice(SITE_NAME.indexOf(' ') + 1)}`,
   },
   description:
-    "Marvinho Limited is Nigeria's premier multi-service corporation, delivering excellence across media production, facility management, domestic services, construction finishing, and general merchandise.",
+    'D KING SAP ACADEMY LTD is an SAP training and consulting organization committed to developing skilled SAP professionals through practical education and supporting organizations with professional SAP services.',
   keywords: [
-    'Marvinho',
-    'Nigeria',
-    'premium services',
-    'photography',
-    'cleaning',
-    'facility management',
-    'nanny services',
-    'tiling',
-    'frame enlargement',
-    'general merchandise',
+    'SAP training',
+    'SAP consulting',
+    'SAP S/4HANA',
+    'FICO',
+    'MM',
+    'SD',
+    'corporate training',
+    'D KING SAP ACADEMY',
+    'SAP certification preparation',
+    'SAP career development',
   ],
-  authors: [{ name: 'Marvinho Limited' }],
-  creator: 'Marvinho Limited',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://marvinho.com'),
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     type: 'website',
     locale: 'en_NG',
     url: '/',
-    siteName: 'Marvinho Limited',
-    title: 'Marvinho Limited | Premium Services. Trusted Excellence.',
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} | SAP Training & Consulting`,
     description:
-      "Nigeria's premier multi-service corporation delivering excellence across six business units.",
+      'Building SAP Experts. Transforming Businesses. Practical SAP training and professional consulting services.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Marvinho Limited',
+        alt: SITE_NAME,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Marvinho Limited | Premium Services. Trusted Excellence.',
+    title: `${SITE_NAME} | SAP Training & Consulting`,
     description:
-      "Nigeria's premier multi-service corporation delivering excellence across six business units.",
+      'Building SAP Experts. Transforming Businesses. Practical SAP training and professional consulting services.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -68,25 +70,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Marvinho Limited',
-    description: "Nigeria's premier multi-service corporation",
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://marvinho.com',
-    logo: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://marvinho.com'}/logo.svg`,
+    name: SITE_NAME,
+    tagline: siteConfig.tagline,
+    description: siteConfig.description,
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.svg`,
     address: {
       '@type': 'PostalAddress',
-      addressCountry: 'NG',
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.city,
+      addressRegion: siteConfig.address.state,
+      addressCountry: siteConfig.address.country,
     },
     contactPoint: {
       '@type': 'ContactPoint',
+      telephone: siteConfig.phone,
+      email: siteConfig.email,
       contactType: 'customer service',
       availableLanguage: 'English',
     },
-    sameAs: [
-      'https://twitter.com/marvinho',
-      'https://instagram.com/marvinho',
-      'https://facebook.com/marvinho',
-      'https://linkedin.com/company/marvinho',
-    ],
+    sameAs: Object.values(siteConfig.social),
   };
 
   return (

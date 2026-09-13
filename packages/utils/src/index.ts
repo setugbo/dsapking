@@ -35,7 +35,7 @@ export function getWhatsAppUrl(phone: string, message?: string): string {
 }
 
 export function getSiteUrl(): string {
-  return process.env.NEXT_PUBLIC_SITE_URL || 'https://marvinho.com';
+  return process.env.NEXT_PUBLIC_SITE_URL || 'https://dkingacademy.com';
 }
 
 export function getAbsoluteUrl(path: string): string {

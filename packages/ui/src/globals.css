@@ -1,48 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --gold: #C9A84C;
-    --gold-light: #f9ecc0;
-    --gold-dark: #9a7522;
-    --black: #141414;
-    --charcoal: #2D2D2D;
-  }
+    --primary: #006BB8;
+    --primary-50: #EBF5FB;
+    --primary-100: #D1E8F6;
+    --primary-200: #A6D0EE;
+    --primary-300: #74B3DF;
+    --primary-400: #3D92CD;
+    --primary-500: #006BB8;
+    --primary-600: #005C9E;
+    --primary-700: #004B81;
+    --primary-800: #003966;
+    --primary-900: #01264B;
+    --primary-950: #011449;
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+    --gold: #F0AB00;
+    --gold-50: #FFF8E6;
+    --gold-100: #FFEFC2;
+    --gold-200: #FFE089;
+    --gold-300: #FFCC45;
+    --gold-400: #FFBE1A;
+    --gold-500: #F0AB00;
+    --gold-600: #D18F00;
+    --gold-700: #A96F00;
+    --gold-800: #7A5200;
+    --gold-900: #5B3C00;
 
-  html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+    --navy: #011449;
+    --navy-50: #E9EDF6;
+    --navy-100: #C7D0E8;
+    --navy-200: #93A3CE;
+    --navy-300: #5B6FAE;
+    --navy-400: #2C3F85;
+    --navy-500: #12224F;
+    --navy-600: #011449;
 
-  body {
-    font-family: 'Inter', sans-serif;
-    color: #141414;
-    background-color: #ffffff;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Manrope', sans-serif;
-  }
-
-  ::selection {
-    background-color: rgba(201, 168, 76, 0.2);
-    color: #141414;
+    --surface: #F5F6F7;
+    --muted: #5B738B;
+    --text: #1F2937;
+    --background: #FFFFFF;
+    --border: #E5E7EB;
   }
 }
 
 @layer components {
-  .container-marvinho {
+  .container-dking {
     @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
@@ -50,21 +55,21 @@
     @apply py-16 sm:py-20 lg:py-24;
   }
 
-  .gradient-gold {
-    background: linear-gradient(135deg, #C9A84C 0%, #e0a82e 50%, #f3d98a 100%);
+  .gradient-primary {
+    background: linear-gradient(135deg, #006BB8 0%, #3D92CD 50%, #74B3DF 100%);
   }
 
-  .gradient-dark {
-    background: linear-gradient(135deg, #141414 0%, #2D2D2D 100%);
+  .gradient-navy {
+    background: linear-gradient(135deg, #011449 0%, #12224F 50%, #2C3F85 100%);
   }
 
-  .text-gradient-gold {
+  .text-gradient-primary {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #C9A84C 0%, #e0a82e 50%, #f3d98a 100%);
+    background-image: linear-gradient(135deg, #006BB8 0%, #3D92CD 50%, #74B3DF 100%);
   }
 
   .card-premium {
-    @apply rounded-2xl border border-gray-100 bg-white p-6 shadow-premium transition-all duration-300;
+    @apply rounded-2xl border border-[var(--border)] bg-white p-6 shadow-premium transition-all duration-300;
   }
 
   .card-premium:hover {
@@ -72,32 +77,32 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[#141414] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#2D2D2D] hover:shadow-lg active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--primary)] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[var(--primary-600)] hover:shadow-lg active:scale-[0.98];
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#141414] bg-transparent px-6 py-3 text-sm font-semibold text-[#141414] transition-all duration-300 hover:bg-[#141414] hover:text-white active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--primary)] bg-transparent px-6 py-3 text-sm font-semibold text-[var(--primary)] transition-all duration-300 hover:bg-[var(--primary)] hover:text-white active:scale-[0.98];
   }
 
   .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[#C9A84C] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#b8912a] hover:shadow-lg active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--gold)] px-6 py-3 text-sm font-semibold text-[var(--navy)] transition-all duration-300 hover:bg-[var(--gold-600)] hover:shadow-lg active:scale-[0.98];
   }
 
   .btn-white {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[#141414] transition-all duration-300 hover:bg-gray-50 hover:shadow-lg active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[var(--text)] transition-all duration-300 hover:bg-gray-50 hover:shadow-lg active:scale-[0.98];
   }
 
   .input-field {
-    @apply w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#141414] outline-none transition-all duration-300 focus:border-[#C9A84C] focus:bg-white focus:ring-2 focus:ring-[#C9A84C]/20;
+    @apply w-full rounded-xl border border-[var(--border)] bg-gray-50 px-4 py-3 text-sm text-[var(--text)] outline-none transition-all duration-300 focus:border-[var(--primary)] focus:bg-white focus:ring-2 focus:ring-[var(--primary)]/20;
   }
 
   .textarea-field {
-    @apply w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#141414] outline-none transition-all duration-300 focus:border-[#C9A84C] focus:bg-white focus:ring-2 focus:ring-[#C9A84C]/20 resize-none;
+    @apply w-full rounded-xl border border-[var(--border)] bg-gray-50 px-4 py-3 text-sm text-[var(--text)] outline-none transition-all duration-300 focus:border-[var(--primary)] focus:bg-white focus:ring-2 focus:ring-[var(--primary)]/20 resize-none;
   }
 
   .select-field {
-    @apply w-full appearance-none rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-[#141414] outline-none transition-all duration-300 focus:border-[#C9A84C] focus:bg-white focus:ring-2 focus:ring-[#C9A84C]/20;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    @apply w-full appearance-none rounded-xl border border-[var(--border)] bg-gray-50 px-4 py-3 text-sm text-[var(--text)] outline-none transition-all duration-300 focus:border-[var(--primary)] focus:bg-white focus:ring-2 focus:ring-[var(--primary)]/20;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%235B738B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 20px;
@@ -105,7 +110,7 @@
   }
 
   .label-field {
-    @apply mb-2 block text-sm font-medium text-[#141414];
+    @apply mb-2 block text-sm font-medium text-[var(--text)];
   }
 
   .error-text {
@@ -113,14 +118,14 @@
   }
 
   .page-header {
-    @apply relative overflow-hidden bg-[#141414] pt-32 pb-20 text-white lg:pt-40 lg:pb-28;
+    @apply relative overflow-hidden bg-[var(--navy)] pt-32 pb-20 text-white lg:pt-40 lg:pb-28;
   }
 
   .page-header::before {
     content: '';
     @apply absolute inset-0 opacity-10;
-    background-image: radial-gradient(circle at 20% 80%, rgba(201, 168, 76, 0.3) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, rgba(201, 168, 76, 0.2) 0%, transparent 50%);
+    background-image: radial-gradient(circle at 20% 80%, rgba(0, 107, 184, 0.3) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(240, 171, 0, 0.2) 0%, transparent 50%);
   }
 }
 

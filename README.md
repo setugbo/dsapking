@@ -1,32 +1,26 @@
-# Marvinho Limited - Corporate Digital Platform
+# D KING SAP ACADEMY LTD — Corporate Digital Platform
 
-Enterprise-grade corporate website for Marvinho Limited, Nigeria's premier multi-service corporation.
+Enterprise-grade corporate website for D KING SAP ACADEMY LTD — an SAP training and consulting organization.
 
 ## Tech Stack
 
 - **Framework:** Next.js 15 (App Router)
 - **Language:** TypeScript
 - **Styling:** TailwindCSS
-- **UI Components:** Custom design system + Shadcn patterns
+- **UI Components:** Custom design system (Classic SAP blue theme)
 - **Animations:** Framer Motion
 - **Icons:** Lucide React
 - **Forms:** React Hook Form + Zod
+- **Contact API:** Nodemailer (server-side submission)
 - **Package Manager:** npm workspaces
 - **Monorepo:** Turborepo
-- **Deployment:** Vercel
 
 ## Architecture
 
 ```
-marvinho/
+dsapking/
 ├── apps/
-│   ├── website/          # Main corporate website
-│   ├── studio/           # Future: Marvinho Studio app
-│   ├── agency/           # Future: Marvinho Agency app
-│   ├── nani/             # Future: Nani's Services app
-│   ├── tiling/           # Future: Marvinho Tiling app
-│   ├── merchandise/      # Future: General Merchandise app
-│   └── admin/            # Future: Admin dashboard
+│   └── website/          # Corporate website
 ├── packages/
 │   ├── ui/               # Shared UI components & design system
 │   ├── branding/         # Brand assets & identity
@@ -35,7 +29,7 @@ marvinho/
 │   ├── shared/           # Shared utilities & constants
 │   ├── forms/            # Form schemas & validation
 │   ├── icons/            # Icon exports
-│   ├── theme/            # Theme configuration
+│   ├── theme/            # Theme configuration (SAP palette)
 │   ├── types/            # TypeScript type definitions
 │   └── utils/            # Utility functions
 ├── turbo.json
@@ -54,8 +48,8 @@ marvinho/
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/marvinho.git
-cd marvinho
+git clone <repository-url>
+cd dsapking
 
 # Install dependencies
 npm install
@@ -78,26 +72,58 @@ npm run build
 npm run lint
 ```
 
-## Business Units
+## Site Content
 
-1. **Marvinho Studio** - Photography, videography, and media production
-2. **Marvinho Agency** - Cleaning, facility management, and staffing
-3. **Nani's Services** - Nanny recruitment and childcare
-4. **Marvinho Tiling** - Tile and marble installation
-5. **Frame Enlargement** - Canvas printing and framing
-6. **General Merchandise** - Procurement and trading
+All site content lives in `packages/config/src/index.ts`:
+
+- `trainingProgrammes` — 8 SAP training modules (FICO, MM, SD, PP, PM, HCM, BW, Basis)
+- `consultingServices` — 10 SAP consulting services
+- `careerServices`, `corporateTraining*`, `coreValues`, `whyChooseUs`, `resources`, `faqs`, `enquiryTypes`
+- `siteConfig` — company details, contact, socials, business hours (placeholder values where unconfirmed)
+
+Update content there and every page, card and dropdown built from the data updates automatically.
 
 ## Environment Variables
 
 Copy `.env.example` to `.env.local` and configure:
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://marvinho.com
-NEXT_PUBLIC_SITE_NAME=Marvinho Limited
-NEXT_PUBLIC_WHATSAPP_NUMBER=+234XXXXXXXXXX
-NEXT_PUBLIC_GOOGLE_MAPS_KEY=your_key
-NEXT_PUBLIC_GA_ID=your_ga_id
+# Public
+NEXT_PUBLIC_SITE_URL=https://dkingacademy.com
+NEXT_PUBLIC_SITE_NAME=D KING SAP ACADEMY LTD
+NEXT_PUBLIC_WHATSAPP_NUMBER=+[WHATSAPP NUMBER]
+NEXT_PUBLIC_STUDENT_PORTAL_URL=
+NEXT_PUBLIC_GA_ID=
+
+# Contact form email (Nodemailer)
+MAIL_HOST=
+MAIL_PORT=465
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_FROM_ADDRESS=
+CONTACT_RECIPIENT=
 ```
+
+The contact form submits to `/api/contact` via server-side Zod validation, a hidden honeypot
+field and per-IP rate limiting. When `MAIL_HOST`/`MAIL_PORT` are set, submissions are delivered
+by email; otherwise the API logs a warning and returns success so local development is not blocked.
+
+## Design System
+
+The design system lives in `packages/ui/` and is themed through CSS variables in `:root`
+(`apps/website/src/app/globals.css` and `packages/ui/src/globals.css`) using the **Classic SAP blue**
+palette — primary `#006BB8`, navy `#011449`, gold `#F0AB00`, surface `#F5F6F7`, muted `#5B738B`.
+
+Rebranding to another SAP color set is a one-file change: update the `:root` variables.
+
+## Pages
+
+- `/` — homepage (§54 section sequence)
+- `/training` + `/training/[slug]` — module overview + detail
+- `/consulting` + `/consulting/[slug]` — services overview + detail
+- `/practical-experience`, `/career-development`, `/corporate-training`
+- `/assessment-certification`, `/resources`, `/student-portal` (coming soon), `/faqs`
+- `/about`, `/contact`, `/privacy`, `/terms`
 
 ## Deployment (Vercel)
 
@@ -108,33 +134,6 @@ NEXT_PUBLIC_GA_ID=your_ga_id
 5. Add environment variables
 6. Deploy
 
-## Design System
-
-The design system is located in `packages/ui/` and includes:
-
-- **Buttons:** primary, secondary, gold, white, ghost, link
-- **Cards:** premium cards with hover effects
-- **Forms:** Input, Textarea, Select with validation
-- **Layout:** Container, Section, PageHeader
-- **Feedback:** Badge, FAQ Accordion, Loading states
-- **Navigation:** Navbar, Footer, Breadcrumbs
-- **Animations:** Scroll reveal, counters, hover effects
-
-## Future Roadmap
-
-- [ ] Sanity CMS integration for content management
-- [ ] Customer portal with authentication
-- [ ] Online booking system
-- [ ] Online payment integration (Paystack/Flutterwave)
-- [ ] Employee portal
-- [ ] Vendor portal
-- [ ] AI chat assistant
-- [ ] Mobile app (React Native)
-- [ ] Analytics dashboard
-- [ ] CRM integration
-- [ ] ERP integration
-- [ ] Multi-language support
-
 ## License
 
-Private - Marvinho Limited. All rights reserved.
+Private — D KING SAP ACADEMY LTD. All rights reserved.

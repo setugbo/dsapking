@@ -6,15 +6,22 @@ import { ContactInfo } from '@/components/contact/ContactInfo';
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
-    'Get in touch with Marvinho Limited. Request quotes, book appointments, or reach our team via phone, email, or WhatsApp.',
+    'Contact D KING SAP ACADEMY LTD — send an enquiry about SAP training, corporate training, consulting or career development. Reach us via phone, email or WhatsApp.',
 };
 
-export default function ContactPage() {
+interface ContactPageProps {
+  searchParams: Promise<{ enquiryType?: string; subject?: string }>;
+}
+
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+  const params = await searchParams;
+
   return (
     <>
       <PageHeader
         title="Contact Us"
-        description="We would love to hear from you. Reach out for quotes, bookings, or general inquiries."
+        badge="Let's Talk"
+        description="Send an enquiry and the D KING team will follow up with programme details, services and next steps."
         breadcrumbs={[{ label: 'Contact' }]}
       />
 
@@ -22,19 +29,16 @@ export default function ContactPage() {
         <Container>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
             <div className="lg:col-span-3">
-              <ContactForm />
+              <ContactForm
+                initialEnquiryType={params.enquiryType ?? ''}
+                initialSubject={params.subject ?? ''}
+              />
             </div>
             <div className="lg:col-span-2">
               <ContactInfo />
             </div>
           </div>
         </Container>
-      </section>
-
-      <section className="h-96 w-full bg-gray-200">
-        <div className="flex h-full items-center justify-center text-gray-400">
-          <p className="text-sm">Google Maps Integration</p>
-        </div>
       </section>
     </>
   );

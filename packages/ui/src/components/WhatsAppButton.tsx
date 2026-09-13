@@ -7,7 +7,9 @@ interface WhatsAppButtonProps {
   message?: string;
 }
 
-export function WhatsAppButton({ message = 'Hello! I would like to inquire about your services.' }: WhatsAppButtonProps) {
+export function WhatsAppButton({
+  message = 'Hello! I would like to enquire about D KING SAP Academy programmes and services.',
+}: WhatsAppButtonProps) {
   const phone = WHATSAPP_NUMBER.replace(/[^0-9]/g, '');
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 

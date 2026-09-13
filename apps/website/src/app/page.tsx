@@ -1,31 +1,34 @@
+import { HeroTrustStrip } from '@marvinho/ui';
+import { heroTrustItems } from '@marvinho/config';
 import { Hero } from '@/components/home/Hero';
-import { Introduction } from '@/components/home/Introduction';
-import { BusinessUnits } from '@/components/home/BusinessUnits';
+import { AboutPreview } from '@/components/home/AboutPreview';
+import { Pillars } from '@/components/home/Pillars';
+import { TrainingProgrammes } from '@/components/home/TrainingProgrammes';
+import { PracticalExperience } from '@/components/home/PracticalExperience';
+import { Consulting } from '@/components/home/Consulting';
+import { CareerDevelopment } from '@/components/home/CareerDevelopment';
+import { CorporateTraining } from '@/components/home/CorporateTraining';
 import { WhyChooseUs } from '@/components/home/WhyChooseUs';
-import { IndustriesServed } from '@/components/home/IndustriesServed';
-import { Statistics } from '@/components/home/Statistics';
-import { Testimonials } from '@/components/home/Testimonials';
-import { FeaturedProjects } from '@/components/home/FeaturedProjects';
-import { LatestArticles } from '@/components/home/LatestArticles';
+import { LearningCTA } from '@/components/home/LearningCTA';
 import { HomeFAQ } from '@/components/home/HomeFAQ';
-import { CTASection } from '@/components/home/CTASection';
-import { NewsletterSection } from '@/components/home/NewsletterSection';
+import { FinalCTA } from '@/components/home/FinalCTA';
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Introduction />
-      <BusinessUnits />
+      <HeroTrustStrip items={heroTrustItems} />
+      <AboutPreview />
+      <Pillars />
+      <TrainingProgrammes />
+      <PracticalExperience />
+      <Consulting />
+      <CareerDevelopment />
+      <CorporateTraining />
       <WhyChooseUs />
-      <IndustriesServed />
-      <Statistics />
-      <Testimonials />
-      <FeaturedProjects />
-      <LatestArticles />
+      <LearningCTA />
       <HomeFAQ />
-      <CTASection />
-      <NewsletterSection />
+      <FinalCTA />
     </>
   );
 }

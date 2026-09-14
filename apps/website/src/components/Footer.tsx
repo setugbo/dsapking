@@ -55,6 +55,13 @@ export function Footer() {
                 {siteConfig.email}
               </a>
               <a
+                href={`mailto:${siteConfig.secondaryEmail}`}
+                className="flex items-center gap-3 text-sm text-gray-400 transition-colors hover:text-[var(--gold)]"
+              >
+                <Mail className="h-4 w-4 flex-shrink-0" />
+                {siteConfig.secondaryEmail}
+              </a>
+              <a
                 href={`tel:${siteConfig.phone}`}
                 className="flex items-center gap-3 text-sm text-gray-400 transition-colors hover:text-[var(--gold)]"
               >

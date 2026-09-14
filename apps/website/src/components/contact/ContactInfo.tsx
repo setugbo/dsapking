@@ -23,6 +23,12 @@ export function ContactInfo() {
       href: `mailto:${siteConfig.email}`,
     },
     {
+      icon: <Mail className="h-5 w-5" />,
+      label: 'Alternative Email',
+      value: siteConfig.secondaryEmail,
+      href: `mailto:${siteConfig.secondaryEmail}`,
+    },
+    {
       icon: <MapPin className="h-5 w-5" />,
       label: 'Address',
       value: [siteConfig.address.street, siteConfig.address.city, siteConfig.address.country]

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@marvinho/utils';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Logo, Button, Container, StudentPortalButton } from '@marvinho/ui';
+import { Logo, Button, Container } from '@marvinho/ui';
 import { navigation } from '@marvinho/config';
 
 export function Navbar() {
@@ -95,7 +95,6 @@ export function Navbar() {
           </div>
 
           <div className="hidden items-center gap-3 xl:flex">
-            <StudentPortalButton />
             <Link href="/contact">
               <Button
                 variant={isDark ? 'gold' : 'primary'}

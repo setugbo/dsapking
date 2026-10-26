@@ -26,11 +26,18 @@ export const siteConfig = {
   secondaryEmail: 'kingsapacademy@gmail.com',
   phone: '+2348108792527',
   whatsapp: '+2348108792527',
+  ukPhone: '+447424797002',
   address: {
     street: '',
     city: 'FCT Abuja',
     state: 'Nigeria',
     country: 'Nigeria',
+  },
+  ukAddress: {
+    street: '36 Bradley Road',
+    city: 'Wolverhampton',
+    state: '',
+    country: 'United Kingdom',
   },
   social: {
     linkedin: '[LINKEDIN URL]',

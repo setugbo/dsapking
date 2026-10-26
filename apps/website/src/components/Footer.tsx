@@ -66,12 +66,27 @@ export function Footer() {
                 className="flex items-center gap-3 text-sm text-gray-400 transition-colors hover:text-[var(--gold)]"
               >
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                {siteConfig.phone}
+                {siteConfig.phone} (Nigeria)
+              </a>
+              <a
+                href={`tel:${siteConfig.ukPhone}`}
+                className="flex items-center gap-3 text-sm text-gray-400 transition-colors hover:text-[var(--gold)]"
+              >
+                <Phone className="h-4 w-4 flex-shrink-0" />
+                {siteConfig.ukPhone} (UK)
               </a>
               <div className="flex items-start gap-3 text-sm text-gray-400">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0" />
                 <span>
                   {[siteConfig.address.street, siteConfig.address.city, siteConfig.address.country]
+                    .filter(Boolean)
+                    .join(', ')}
+                </span>
+              </div>
+              <div className="flex items-start gap-3 text-sm text-gray-400">
+                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                <span>
+                  {[siteConfig.ukAddress?.street, siteConfig.ukAddress?.city, siteConfig.ukAddress?.country]
                     .filter(Boolean)
                     .join(', ')}
                 </span>

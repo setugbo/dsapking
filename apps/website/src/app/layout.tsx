@@ -82,13 +82,35 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       addressRegion: siteConfig.address.state,
       addressCountry: siteConfig.address.country,
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: siteConfig.phone,
-      email: siteConfig.email,
-      contactType: 'customer service',
-      availableLanguage: 'English',
-    },
+    location: [
+      {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: siteConfig.ukAddress?.street,
+          addressLocality: siteConfig.ukAddress?.city,
+          addressCountry: siteConfig.ukAddress?.country,
+        },
+      },
+    ],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: siteConfig.phone,
+        email: siteConfig.email,
+        contactType: 'customer service',
+        areaServed: 'NG',
+        availableLanguage: 'English',
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: siteConfig.ukPhone,
+        email: siteConfig.email,
+        contactType: 'customer service',
+        areaServed: 'GB',
+        availableLanguage: 'English',
+      },
+    ],
     sameAs: Object.values(siteConfig.social),
   };
 

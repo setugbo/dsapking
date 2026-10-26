@@ -12,9 +12,15 @@ export function ContactInfo() {
   const infoItems = [
     {
       icon: <Phone className="h-5 w-5" />,
-      label: 'Phone',
+      label: 'Phone (Nigeria)',
       value: siteConfig.phone,
       href: `tel:${siteConfig.phone}`,
+    },
+    {
+      icon: <Phone className="h-5 w-5" />,
+      label: 'Phone (UK)',
+      value: siteConfig.ukPhone,
+      href: `tel:${siteConfig.ukPhone}`,
     },
     {
       icon: <Mail className="h-5 w-5" />,
@@ -30,8 +36,16 @@ export function ContactInfo() {
     },
     {
       icon: <MapPin className="h-5 w-5" />,
-      label: 'Address',
+      label: 'Address (Nigeria)',
       value: [siteConfig.address.street, siteConfig.address.city, siteConfig.address.country]
+        .filter(Boolean)
+        .join(', '),
+      href: null,
+    },
+    {
+      icon: <MapPin className="h-5 w-5" />,
+      label: 'Address (UK)',
+      value: [siteConfig.ukAddress?.street, siteConfig.ukAddress?.city, siteConfig.ukAddress?.country]
         .filter(Boolean)
         .join(', '),
       href: null,
